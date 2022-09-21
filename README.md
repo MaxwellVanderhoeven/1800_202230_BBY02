@@ -5,7 +5,13 @@
 * [Contents](#content)
 
 ## General Info
+<<<<<<< HEAD
 This is Max V.
+=======
+This browser based web application to allow users to find and post recipes
+
+Hi my name is Yegor, I'm excited about this project because I want to get better at program developement!
+>>>>>>> f184dd2d012d5d8450f76492aafb99b1c4c5789f
 	
 ## Technologies
 Technologies used for this project:
