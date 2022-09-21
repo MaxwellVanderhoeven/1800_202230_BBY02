@@ -5,8 +5,14 @@
 * [Contents](#content)
 
 ## General Info
+<<<<<<< HEAD
 This browser based web application to ...
 * Hi my name is Michelle. I'm excited about this project because I want to find recipes that suit my needs, and I want to be able to check how reliable it is based on the reviews other users have left. 
+=======
+This browser based web application to allow users to find and post recipes
+
+Hi my name is Yegor, I'm excited about this project because I want to get better at program developement!
+>>>>>>> f184dd2d012d5d8450f76492aafb99b1c4c5789f
 	
 ## Technologies
 Technologies used for this project:
