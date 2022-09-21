@@ -5,7 +5,7 @@
 * [Contents](#content)
 
 ## General Info
-This browser based web application to ...
+This is Max V.
 	
 ## Technologies
 Technologies used for this project:
