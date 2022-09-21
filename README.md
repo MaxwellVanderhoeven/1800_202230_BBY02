@@ -5,7 +5,9 @@
 * [Contents](#content)
 
 ## General Info
-This browser based web application to ...
+This browser based web application to allow users to find and post recipes
+
+Hi my name is Yegor, I'm excited about this project because I want to get better at program developement!
 	
 ## Technologies
 Technologies used for this project:
