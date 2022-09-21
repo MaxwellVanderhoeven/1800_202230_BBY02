@@ -5,8 +5,12 @@
 * [Contents](#content)
 
 ## General Info
+<<<<<<< HEAD
 This browser based web application to ...
 * Hi my name is Michelle. I'm excited about this project because I want to find recipes that suit my needs, and I want to be able to check how reliable it is based on the reviews other users have left. 
+=======
+This is Max V.
+>>>>>>> 8219de9aa98fd5ff8f50fd3ebcaf13ac1cb9fce6
 This browser based web application to allow users to find and post recipes
 
 Hi my name is Yegor, I'm excited about this project because I want to get better at program developement!
