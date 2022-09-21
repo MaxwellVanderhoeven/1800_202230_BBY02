@@ -6,6 +6,7 @@
 
 ## General Info
 This browser based web application to ...
+* Hi my name is Michelle. I'm excited about this project because I want to find recipes that suit my needs, and I want to be able to check how reliable it is based on the reviews other users have left. 
 	
 ## Technologies
 Technologies used for this project:
