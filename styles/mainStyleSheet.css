@@ -1,0 +1,104 @@
+html {
+    margin: 0pt;
+    padding: 0pt;
+    height: 100%;
+    width: 100%;
+}
+
+.carouselleDiv {
+    padding: auto;
+    margin: auto;
+    max-height: 85vh;
+}
+
+.loginScreen {
+    background-image: url("https://img.freepik.com/premium-photo/waist-up-portrait-diverse-group-people-cooking-together-during-workshop-professional-kitchen_236854-35219.jpg?w=1060");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-color: #7e8896;
+    height: 100vh;
+}
+
+#profileIcon {
+    width: 30vw;
+    border-radius: 50%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#centerT {
+    text-align: center;
+}
+
+#centerP {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#profile {
+    text-align: center;
+}
+
+#margins {
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+
+#margins > p {
+    margin-left: 3vw;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+table {
+    width: 100%;
+    height: 5vh;
+}
+
+#exclusionPage p {
+    margin: auto;
+}
+
+#exclusionPage table {
+    margin: auto;
+}
+
+#exclusionPage tr {
+    margin-right:0%;
+}
+
+#tdMain {
+    width: 65vw;
+}
+
+table {
+    border: 1px solid;
+}
+
+aside {
+    float: right;
+}
+
+.buttonAgainstSide {
+    width: 1px;
+    margin-right: 0px;
+    margin-left: auto;
+
+}
+
+#tdSide {
+    width: 15vw;
+    text-align: center;
+}
+
+.banner {
+    width: 75vw;
+    padding: auto;
+    margin: auto;
+    background-color: rgba(255,255,255,0.75);
+}

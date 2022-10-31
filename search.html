@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>My BCIT Project</title>
+    <meta name="comp1800 template" content="My 1800 App">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap Library CSS CDN go here -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Boostrap Library JS CDN  go here -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Other libraries go here -->
+
+    <!-- Link to styles of your own -->
+    <link rel="stylesheet" href="./styles/mainStyleSheet.css">
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+
+      <a class="navbar-brand" href="./main.html"><b>EZ Recipes</b></a>
+      <a class="navbar-brand" href="./search.html">Search</a>
+      <a class="navbar-brand" href="./profile.html">Profile</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Post Recipe</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Post Recipe Request</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" href="#">View Active Recipe Requests</a>
+          </li>
+          
+          <!--<li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+             </ul>-->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<main class="container">
+  <br>
+  <h1 class="display-1">Search </h1>
+  <div id="searchbar">
+    <div class="input-group">
+      <input type="search" class="form-control rounded" placeholder="Search By Recipes" aria-label="Search" />
+      <button type="button" class="btn btn-outline-primary">&nbsp;&nbsp;&nbsp;Search By Recipes&nbsp;&nbsp;&nbsp;</button>
+    </div><br>
+
+    <div class="input-group">
+      <input type="search" class="form-control rounded" placeholder="Search By Ingredients" aria-label="Search" />
+      <button type="button" class="btn btn-outline-primary">Search By Ingredients</button>
+    </div><br><br><br><br><br>
+
+    <nav>
+      <div class="container-fluid">
+        <h2 class="display-1">Search</h2>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search by . . ." aria-label="Search">
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Search Options
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="#">By Recipes</a></li>
+              <li><a class="dropdown-item" href="#">By Ingredients</a></li>
+            </ul>
+          </div>
+          <!--<button class="btn btn-outline-success" type="submit">Search</button>-->
+        </form>
+      </div>
+    </nav>
+    
+  </div>
+</main>
+
+    <!-- Link to scripts of your own -->
+    <!-- <script src="./scripts/script.js"></script> -->
+
+</body>
+
+</html>
