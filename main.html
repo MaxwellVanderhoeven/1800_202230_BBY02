@@ -2,69 +2,98 @@
 <html lang="en">
 
 <head>
-    <title>My BCIT Project</title>
-    <meta name="comp1800 template" content="My 1800 App">
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My BCIT Project</title>
+  <meta name="comp1800 template" content="My 1800 App">
 
-    <!-- Bootstrap Library CSS CDN go here -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Boostrap Library JS CDN  go here -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+  <!-- Bootstrap Library CSS CDN go here -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <!-- Other libraries go here -->
+  <!-- Boostrap Library JS CDN  go here -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
 
-    <!-- Link to styles of your own -->
-    <!-- <link rel="stylesheet" href="./styles/style.css"> -->
+  <!-- Other libraries go here -->
+
+  <!-- Link to styles of your own -->
+  <link rel="stylesheet" href="./styles/mainStyleSheet.css">
 
 </head>
 
 <body>
 
-    <!------------------------------>
-    <!-- Your HTML Layout go here -->
-    <!------------------------------>
-<!-- Max's Contribution-->
-<nav class="navbar navbar-light fixed-bottom bg-light">
-    <a class="navbar-brand" href="#">
-        <img src="./docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-        Hamburger Menu
-      </a>
-      <a class="navbar-brand" href="#">
-        <img src="./docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-        Search
-      </a>
-      <a class="navbar-brand" href="#">
-        <img src="./docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-        Profile
-      </a>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="./main.html"><b>EZ Recipes</b></a>
+    <a class="navbar-brand" href="./search.html">Search</a>
+    <a class="navbar-brand" href="./profile.html">Profile</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">Post Recipe</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Post Recipe Request</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link active" href="#">View Active Recipe Requests</a>
+      </li>
+  
+      <!--<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Dropdown
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul> -->
+      </ul>
+    </div>
+  </div>
 </nav>
-    
-<!-- Michelle's Contribution-->
-<h3>Logged In!</h3>
-<!-- <div class="px-4 py-5 my-5 text-center">
-    <img src="./images/images (1).png" height="150">
-    <h1 class="display-5 fw-bold">Welcome to EZ Recipes! Let's get Cookin!</h1>
-    <div class="col-lg-6 mx-auto">
-        <p class="lead mb-4">Recipes for you, by you!</p>
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Log in</button>
-            <button type="button" class="btn btn-outline-secondary btn-lg px-4">Sign up</button>
-        </div>
-    </div> -->
 
-    <!---------------------------------------------->
-    <!-- Your own JavaScript functions go here    -->
-    <!---------------------------------------------->
+<main class="container-fluid">
+<br>
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner carouselleDiv">
+      <div class="carousel-item active">
+        <img src="https://dummyimage.com/1920x1080/000/fff&text=First+Featured+Recipe" class="d-block w-100" alt="First Featured">
+      </div>
+      <div class="carousel-item">
+        <img src="https://dummyimage.com/1920x1080/000/fff&text=Second+Featured+Recipe" class="d-block w-100" alt="Second Featured">
+      </div>
+      <div class="carousel-item">
+        <img src="https://dummyimage.com/1920x1080/000/fff&text=Third+Featured+Recipe" class="d-block w-100" alt="Third Featured">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</main>
 
-    <!-- Link to scripts of your own -->
-    <!-- <script src="./scripts/script.js"></script> -->
+<!-- Link to scripts of your own -->
+<!-- <script src="./scripts/script.js"></script> -->
 
 </body>
 
