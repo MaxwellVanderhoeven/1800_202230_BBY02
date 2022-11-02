@@ -1,0 +1,16 @@
+
+@font-face {
+    font-family: 'requestfont';
+    src: url(./fonts/Typo\ Grotesk\ Rounded\ Demo.otf);
+}
+.container{
+    font-family: "requestfont";
+    margin-top: 15px;
+}
+
+.checkboxes {
+    margin-top: 10px;
+}
+.form-group{
+    margin-top: 8px;
+}

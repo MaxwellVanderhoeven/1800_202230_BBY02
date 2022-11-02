@@ -23,7 +23,8 @@
 
   <!-- Link to styles of your own -->
   <link rel="stylesheet" href="./styles/mainStyleSheet.css">
-
+  <link rel="stylesheet" href="./styles/navbarstylesheet.css">
+  <link rel="stylesheet" href="./styles/requeststylesheet.css">
 </head>
 
 <body>
@@ -52,17 +53,6 @@
           <li class="nav-item">
             <a class="nav-link active" href="#">View Active Recipe Requests</a>
           </li>
-
-          <!--<li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul> -->
         </ul>
       </div>
     </div>
@@ -72,8 +62,48 @@
     <form>
 
       <div class="form-group">
-        <label for="exampleFormControlInput1">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        <label for="exampleFormControlInput1">Recipe Title:</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="ex: Mac and Cheese">
+      </div>
+
+<div class="checkboxes">
+  <label for="form-check">What type(s) of meal is your request?</label>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Appetizer
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Salads
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Main Dishes
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Soups
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Vegetables
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Desserts
+        </label>
+      </div>
       </div>
 
       <div class="form-group">
@@ -89,10 +119,13 @@
         </select>
       </div>
       <div class="mb-3 mt-3">
-        <label for="comment">Comments:</label>
-        <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
+        <label for="comment">Specific recipe requirements:</label>
+        <textarea class="form-control" rows="5" id="comment" name="text" placeholder="ex: I want my Mac and Cheese recipe to only take 30 minutes"></textarea>
       </div>
-
+      
+      <div class="d-grid gap-2">
+        <button id="submit" class="btn btn-primary" type="button">Submit</button>
+      </div>
     </form>
   </div>
 
