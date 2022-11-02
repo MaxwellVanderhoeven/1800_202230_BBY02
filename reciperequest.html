@@ -3,7 +3,7 @@
 
 <head>
 
-  <title>My BCIT Project</title>
+  <title>EZ Recipes</title>
   <meta name="comp1800 template" content="My 1800 App">
 
   <!-- Required meta tags -->
@@ -19,6 +19,16 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
 
+  <!-------------------------------------------------------->
+  <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+  <!-------------------------------------------------------->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+
   <!-- Other libraries go here -->
 
   <!-- Link to styles of your own -->
@@ -29,34 +39,7 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="./main.html"><b>EZ Recipes</b></a>
-      <a class="navbar-brand" href="./search.html">Search</a>
-      <a class="navbar-brand" href="./profile.html">Profile</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Post Recipe</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link active" href="reciperequest.html">Post Recipe Request</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link active" href="#">View Active Recipe Requests</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <nav id="navbarPlaceholder"></nav>
 
   <div class="container">
     <form>
@@ -66,44 +49,44 @@
         <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="ex: Mac and Cheese">
       </div>
 
-<div class="checkboxes">
-  <label for="form-check">What type(s) of meal is your request?</label>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault">
-          Appetizer
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault">
-          Salads
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault">
-          Main Dishes
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault">
-          Soups
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault">
-          Vegetables
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault">
-          Desserts
-        </label>
-      </div>
+      <div class="checkboxes">
+        <label for="form-check">What type(s) of meal is your request?</label>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            Appetizer
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            Salads
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            Main Dishes
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            Soups
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            Vegetables
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            Desserts
+          </label>
+        </div>
       </div>
 
       <div class="form-group">
@@ -120,16 +103,22 @@
       </div>
       <div class="mb-3 mt-3">
         <label for="comment">Specific recipe requirements:</label>
-        <textarea class="form-control" rows="5" id="comment" name="text" placeholder="ex: I want my Mac and Cheese recipe to only take 30 minutes"></textarea>
+        <textarea class="form-control" rows="5" id="comment" name="text"
+          placeholder="ex: I want my Mac and Cheese recipe to only take 30 minutes"></textarea>
       </div>
-      
+
       <div class="d-grid gap-2">
         <button id="submit" class="btn btn-primary" type="button">Submit</button>
       </div>
     </form>
   </div>
 
-
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
+    <script src="./scripts/firebaseAPI_BBY02"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/authentication.js"></script>
 </body>
 
 </html>
