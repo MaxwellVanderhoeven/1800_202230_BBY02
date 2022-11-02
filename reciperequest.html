@@ -29,69 +29,73 @@
 <body>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="./main.html"><b>EZ Recipes</b></a>
-    <a class="navbar-brand" href="./search.html">Search</a>
-    <a class="navbar-brand" href="./profile.html">Profile</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./main.html"><b>EZ Recipes</b></a>
+      <a class="navbar-brand" href="./search.html">Search</a>
+      <a class="navbar-brand" href="./profile.html">Profile</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="reciperequest.html">Post Recipe</a>
-      </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Post Recipe</a>
+          </li>
 
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Post Recipe Request</a>
-      </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="reciperequest.html">Post Recipe Request</a>
+          </li>
 
-      <li class="nav-item">
-        <a class="nav-link active" href="#">View Active Recipe Requests</a>
-      </li>
-  
-      <!--<li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Dropdown
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
-        </ul> -->
-      </ul>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">View Active Recipe Requests</a>
+          </li>
+
+          <!--<li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul> -->
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<form>
-    
-    <div class="form-group">
-      <label for="exampleFormControlInput1">Email address</label>
-      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-    </div>
-   
-    <div class="form-group">
-      <label for="exampleFormControlSelect2">What is the maximum number of ingredients you would like included</label>
-      <select multiple class="form-control" id="exampleFormControlSelect2">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-        <option>No limit</option>
-      </select>
-    </div>
-    <div class="mb-3 mt-3">
+  <div class="container">
+    <form>
+
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      </div>
+
+      <div class="form-group">
+        <label for="exampleFormControlSelect2">What is the maximum number of ingredients you would like
+          included?</label>
+        <select multiple class="form-control" id="exampleFormControlSelect2">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>No limit</option>
+        </select>
+      </div>
+      <div class="mb-3 mt-3">
         <label for="comment">Comments:</label>
         <textarea class="form-control" rows="5" id="comment" name="text"></textarea>
-    </div>
-    
-  </form>
-  
+      </div>
+
+    </form>
+  </div>
+
 
 </body>
 
