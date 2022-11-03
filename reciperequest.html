@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <title>EZ Recipes</title>
+  <meta name="comp1800 template" content="My 1800 App">
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap Library CSS CDN go here -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <!-- Boostrap Library JS CDN  go here -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <!-------------------------------------------------------->
+  <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+  <!-------------------------------------------------------->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+
+  <!-- Other libraries go here -->
+
+  <!-- Link to styles of your own -->
+  <link rel="stylesheet" href="./styles/mainStyleSheet.css">
+  <link rel="stylesheet" href="./styles/navbarstylesheet.css">
+  <link rel="stylesheet" href="./styles/requeststylesheet.css">
+</head>
+
+<body>
+
+  <nav id="navbarPlaceholder"></nav>
+
+  <div class="container">
+    <form>
+
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Recipe Title:</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="ex: Mac and Cheese">
+      </div>
+
+      <div class="checkboxes">
+        <label for="form-check">What type(s) of meal is your request?</label>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            Appetizer
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            Salads
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            Main Dishes
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            Soups
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            Vegetables
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            Desserts
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleFormControlSelect2">What is the maximum number of ingredients you would like
+          included?</label>
+        <select multiple class="form-control" id="exampleFormControlSelect2">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>No limit</option>
+        </select>
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="comment">Specific recipe requirements:</label>
+        <textarea class="form-control" rows="5" id="comment" name="text"
+          placeholder="ex: I want my Mac and Cheese recipe to only take 30 minutes"></textarea>
+      </div>
+
+      <div class="d-grid gap-2">
+        <button id="submit" class="btn btn-primary" type="button">Submit</button>
+      </div>
+    </form>
+  </div>
+
+    <!---------------------------------------------->
+    <!-- Your own JavaScript functions go here    -->
+    <!---------------------------------------------->
+    <script src="./scripts/firebaseAPI_BBY02"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/authentication.js"></script>
+</body>
+
+</html>

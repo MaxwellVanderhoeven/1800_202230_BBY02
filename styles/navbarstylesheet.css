@@ -1,0 +1,15 @@
+@font-face {
+    font-family: "logofont";
+    src: url(./fonts/junegull.ttf);
+}
+
+.navbar-brand {
+    font-family: 'logofont';
+    color: black;
+}
+
+.nav-item {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
+
