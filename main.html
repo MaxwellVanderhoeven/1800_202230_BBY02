@@ -41,6 +41,21 @@
 
   <nav id="navbarPlaceholder"></nav>
 
+  <!-- Templates for general use, not displayed -->
+  <template id="recipeCardTemplate">
+    <div class="card py-2 mx-2" style="width: 40rem; height: auto;">
+        <img class="card-image card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <a href="review.html" class="link-primary">Write a review</a>
+            <br>
+            <p class="card-author">Some quick example text to build on the card title and make up the bulk of the
+                card's content.</p>
+            <a class="btn btn-primary card-href">Go to recipe instructions</a>
+        </div>
+    </div>
+</template>
+
   <main class="container-fluid">
     <br>
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -69,6 +84,15 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
+
+    <div class="container-fluid">
+      <h1>Some popular recipes</h1>
+      <!-- Here is container for cards  -->
+      <div class="container-fluid">
+          <div id="Recipes-go-here" class="row row-cols-auto">
+          </div>
+      </div>
+</div>
   </main>
 
   <!---------------------------------------------->
@@ -76,7 +100,7 @@
     <!---------------------------------------------->
     <script src="./scripts/firebaseAPI_BBY02"></script>
     <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/authentication.js"></script>
+    <script src="./scripts/main.js"></script>
     <!-- <script src="./scripts/script.js"></script> -->
 
 </body>
