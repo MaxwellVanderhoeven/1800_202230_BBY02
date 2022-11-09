@@ -1,3 +1,4 @@
+console.log("skeleton.js loaded");
 function loadSkeleton(){
     console.log($('#navbarPlaceholder').load('./nav.html'));
 }
