@@ -32,42 +32,7 @@
 
 <body class="loginScreen">
 
-    <!-- Templates for general use, not displayed -->
-    <template id="recipeCardTemplate">
-      <div class="card py-2 mx-2" style="width: 18rem;">
-          <img class="card-image card-img-top" src="https://dummyimage.com/100x100/000000/fff&text=Temp" alt="...">
-          <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's content.</p>
-              <p class="ingredientsList">IngredientsPlaceholder</p>
-              <a class="btn btn-primary card-href">Get Details</a>
-          </div>
-      </div>
-  </template>
-
   <nav id="navbarPlaceholder"></nav><br>
-
-  <div class="container">
-    <h1>User Profile </h1>
-    <form>
-        <fieldset class="mb-3" id="personalInfoFields" disabled>
-            <div class="form-group">
-                <label ><b>Username</b> (The name others will see)</label>
-                <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
-            </div><br>
-            <div class="form-group">
-                <label ><b>Permanent Exclusions</b><br>Recipes that contain the ingredients you add here won't be shown to you.<br>You can add or remove ingredients later in <b>profile settings.</b></label>
-                <input type="text" id="exclusionsInput" class="form-control" placeholder="Add any ingredient you don't want to see">
-            </div>
-        </fieldset>
-        <div class="d-flex justify-content-end mt-5">
-            <button type="button" class="btn btn-secondary" onclick="editUserInfo()" >Edit</button>
-            <span style="width: 10px"></span>
-            <button type="button" class="btn btn-info" onclick="saveUserInfo()" >Save</button>
-        </div>
-    </form>
-</div>
 
   <div id="contains">
     <div id="recipeSumbit">
@@ -95,22 +60,12 @@
     </div>
   </div><br>
 
-  <div class="container">
-    <h1>Some popular hikes</h1>
-    <!-- Here is container for cards  -->
-    <div class="container">
-        <div id="recipeCardGroup" class="row row-cols-auto">
-        </div>
-    </div>
-</div>
-
-
     <!-- Your own JavaScript functions go here    -->
     <script src="./scripts/firebaseAPI_BBY02.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/script.js"></script>
     <!-- <script src="./scripts/authentication.js"></script> -->
-    <script src="./scripts/dataBaseTest.js"></script>
+    <script src="./scripts/postRecipes.js"></script>
 
     <!-- Link to scripts of your own -->
     <!-- <script src="./scripts/script.js"></script> -->

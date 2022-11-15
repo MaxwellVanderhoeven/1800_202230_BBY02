@@ -79,11 +79,11 @@ function editUserInfo() {
 
  function saveUserInfo() {
     userName = document.getElementById('nameInput').value;       //get the value of the field with id="nameInput"
-    userSchool = document.getElementById('exclusionsInput').value;     //get the value of the field with id="exclusionsInput"
+    exclusions = document.getElementById('exclusionsInput').value;     //get the value of the field with id="exclusionsInput"
     
     currentUser.update({
         username: userName,
-        exclusions: userSchool
+        exclusions: exclusions
     })
     .then(() => {
         console.log("Document successfully updated!");
@@ -109,7 +109,6 @@ function submitRecipe() {
   console.log("Firebase Auth Below");
   firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        console.log("inside If User");
           var currentUser = db.collection("users").doc(user.uid)
           var userID = user.uid;
           //get the document for current user.
