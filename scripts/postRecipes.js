@@ -14,10 +14,10 @@ firebase.auth().onAuthStateChanged(user => {
 function submitRecipe() {
   console.log("submitRecipe called");
 
-  let Title = document.getElementById("title").value;
-  let Ingredients = document.getElementById("ingredients").value;
-  let Instructions = document.getElementById("instructions").value;
-  let Description = document.getElementById("description").value;
+  let Title = document.getElementById("exampleFormControlInput1").value;
+  let Ingredients = document.getElementById("exampleFormControlInput2").value;
+  let Instructions = document.getElementById("comment2").value;
+  let Description = document.getElementById("comment").value;
 
   console.log("Title:",Title,",  Ingredients:",Ingredients,"  Instructions:",Instructions,"  Description:",Description);
 
@@ -29,23 +29,26 @@ function submitRecipe() {
               .then(userDoc => {
                 console.log("Current User:",currentUser.get());
                 console.log(user.uid);
+                var user_Name = user.displayName;
                   //var userEmail = userDoc.data().email;
                   db.collection("recipes").add({
                       title : Title,
                       description: Description,
                       ingredients: Ingredients,
                       instructions: Instructions,
-                      author: currentUser,
+                      author: user_Name,
                       photo: "drink1",
                       reviewsPercent: "Percent",
                       uploadDate: firebase.firestore.FieldValue.serverTimestamp()
                   }).then(()=>{
+                    console.log(currentUser);
                       console.log("Recipe submitted");
-                      //window.location.href = "main.html"; //new line added
+                      window.location.href = "thanksrecipe.html"; //new line added
                   })
               })
                  
       } else {
+        window.location.href = "login.html"
           console.log("Must Log In To Submit Recipe");
       }
   });

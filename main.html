@@ -42,6 +42,13 @@
 
   <nav id="navbarPlaceholder"></nav>
 
+  <div class="container-fluid text-light p-5" style="background-color: rgb(251, 224, 173);">
+    <div class="container bg-dark p-5">
+      <h1 class="display-4">Happy cooking, <span id="name-goes-here"></span>!</h1>
+      <hr>
+    </div>
+  </div>
+
   <!-- Templates for general use, not displayed -->
   <template id="recipeCardTemplate">
     <div class="card py-2 mx-2" style="width: 20rem; height: auto;">
@@ -52,8 +59,10 @@
         <br>
         <p class="card-author">Some quick example text to build on the card title and make up the bulk of the
           card's content.</p>
-        <i class="material-icons">favorite_border</i><a class="btn btn-primary card-href" style="float: right;">Go to
-          recipe</a>
+        <p class="card-description">Some quick example text to build on the card title and make up the bulk of the
+          card's content.</p>
+        <i class="material-icons">favorite_border</i><a href="eachRecipe.html" class="btn btn-primary read-more"
+          id="get-details" style="float: right">Go to recipe</a>
       </div>
     </div>
   </template>
@@ -87,10 +96,10 @@
   </main>
 
   <div class="container-fluid" style="justify-content: center;">
-    <h1>Some popular recipes</h1>
+    <h1 style="font-family: 'logofont'; padding-top: 20px;">Some popular recipes</h1>
     <!-- Here is container for cards  -->
     <div class="container-fluid justify-content-center">
-      <div id="Recipes-go-here" class="row row-cols-auto">
+      <div style="margin-top: 10px;" id="recipes-go-here" class="row row-cols-auto">
       </div>
     </div>
   </div>

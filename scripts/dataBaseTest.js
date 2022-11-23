@@ -17,8 +17,8 @@ function populateCardsDynamically() {
   let recipeCardGroup = document.getElementById("recipeCardGroup");
   
   db.collection("recipes").get()
-      .then(allHikes => {
-          allHikes.forEach(doc => {
+      .then(allRecipes => {
+          allRecipes.forEach(doc => {
               var recipeTitle = doc.data().title;
               var recipeAuthor = doc.data().author;
               var photoID = doc.data().photo;

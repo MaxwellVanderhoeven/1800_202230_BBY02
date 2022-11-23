@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <title>EZ Recipes</title>
   <meta name="comp1800 template" content="My 1800 App">
 
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <!-- Bootstrap Library CSS CDN go here -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
   <!-- Boostrap Library JS CDN  go here -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
+
+  <!-------------------------------------------------------->
   <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+  <!-------------------------------------------------------->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
@@ -23,52 +30,55 @@
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
   <!-- Other libraries go here -->
-  <link rel="icon" type="image/x-icon" href="https://dummyimage.com/100x100/000000/fff&text=Temp">
 
   <!-- Link to styles of your own -->
-  <link rel="stylesheet" href="./styles/template.css">
-
+  <link rel="stylesheet" href="./styles/mainStyleSheet.css">
+  <link rel="stylesheet" href="./styles/navbarstylesheet.css">
+  <link rel="stylesheet" href="./styles/requeststylesheet.css">
 </head>
 
-<body class="loginScreen">
-
+<body>
   <nav id="navbarPlaceholder"></nav><br>
+  <div class="container">
+    <form>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Recipe Title:</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="ex: Mac and Cheese">
+      </div>
 
-  <div id="contains">
-    <div id="recipeSumbit">
-      <form>
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Title:</label>
-            <input type="text" class="form-control" id="title" placeholder="Title">
-        </div><br>
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Description:</label>
-            <input type="text" class="form-control" id="description" placeholder="Description">
-        </div><br>
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Ingredients:</label>
-            <input type="text" class="form-control" id="ingredients" placeholder="Ingredients">
-        </div><br>
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Instructions:</label>
-            <input type="text" class="form-control" id="instructions" placeholder="Instuctions">
-        </div><br>
-            <div class="d-flex justify-content-center">
-                <button type="button" class="btn btn-lg btn-primary pull-right" onclick="submitRecipe()">Submit</button>
-            </div>
-      </form>
-    </div>
-  </div><br>
+      <div class="mb-3 mt-3">
+        <label for="comment">Description:</label>
+        <textarea class="form-control" rows="5" id="comment" name="text"
+          placeholder="ex: A quick and easy Mac and Cheese recipe"></textarea>
+      </div>
 
-    <!-- Your own JavaScript functions go here    -->
-    <script src="./scripts/firebaseAPI_BBY02.js"></script>
-    <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/script.js"></script>
-    <!-- <script src="./scripts/authentication.js"></script> -->
-    <script src="./scripts/postRecipes.js"></script>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Ingredients:</label>
+        <input type="email" class="form-control" id="exampleFormControlInput2"
+          placeholder="ex. Cheddar cheese, heavy cream, elbow pasta...">
+      </div>
 
-    <!-- Link to scripts of your own -->
-    <!-- <script src="./scripts/script.js"></script> -->
+      <div class="mb-3 mt-3">
+        <label for="comment">Instructions:</label>
+        <textarea class="form-control" rows="5" id="comment2" name="text"
+          placeholder="ex: Start by mixing all your dry ingredients together, then..."></textarea>
+      </div>
+      <div class="d-grid gap-2">
+        <button type="button" class="btn btn-primary pull-right" onclick="submitRecipe()">Post Recipe!</button>
+      </div>
+  </div>
+  </form>
+  </div>
+
+  <!-- Your own JavaScript functions go here    -->
+  <script src="./scripts/firebaseAPI_BBY02.js"></script>
+  <script src="./scripts/skeleton.js"></script>
+  <script src="./scripts/script.js"></script>
+  <!-- <script src="./scripts/authentication.js"></script> -->
+  <script src="./scripts/postRecipes.js"></script>
+
+  <!-- Link to scripts of your own -->
+  <!-- <script src="./scripts/script.js"></script> -->
 
 </body>
 

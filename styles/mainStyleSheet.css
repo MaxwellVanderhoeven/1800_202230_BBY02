@@ -106,3 +106,8 @@ aside {
 .material-icons{
     cursor: pointer;
 }
+
+body {
+    background-color: beige;
+}
+

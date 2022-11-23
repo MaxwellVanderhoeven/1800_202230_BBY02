@@ -56,13 +56,15 @@ function displayCards(collection) {
                 var recipeName = doc.data().title;        // get value of the "title" key
                 var recipeAuthor = doc.data().author;   // get value of the "author" key
                 var recipePhoto = doc.data().photo;
+                var recipeDescription = doc.data().description;
                 let newcard = cardTemplate.content.cloneNode(true);
 
                 //update title and text and image
                 newcard.querySelector('.card-title').innerHTML = recipeName;
                 newcard.querySelector('.card-author').innerHTML = recipeAuthor;
+                newcard.querySelector('.card-description').innerHTML = recipeDescription;
                 newcard.querySelector('i').id = 'save-' + recipePhoto;
-                // this line will call a function to save the hikes to the user's document             
+                // this line will call a function to save the recipes to the user's document             
                 newcard.querySelector('i').onclick = () => saveFavourite(recipePhoto);
                 currentUser.get().then(userDoc => {
                     //get the user name
@@ -73,14 +75,14 @@ function displayCards(collection) {
                 })
                 newcard.querySelector('.card-image').src = `./images/${recipePhoto}.jpg`;
                 console.log(collection);
-
+                newcard.querySelector('.read-more').href = "eachRecipe.html?recipeName="+recipeName +"&id=" + recipePhoto;
                 //attach to gallery
                 document.getElementById(collection + "-go-here").appendChild(newcard);
                 //i++;   //if you want to use commented out section
             })
         })
 }
-displayCards("Recipes");
+displayCards("recipes");
 
 //-----------------------------------------------------------------------------
 // This function is called whenever the user clicks on the "bookmark" icon.
