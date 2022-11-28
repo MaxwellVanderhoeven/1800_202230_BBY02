@@ -37,22 +37,37 @@
   <div id="contains">
     <div id="recipeSumbit">
       <form>
+
         <div class="form-group">
             <label for="exampleFormControlInput1">Title:</label>
             <input type="text" class="form-control" id="title" placeholder="Title">
         </div><br>
+        
         <div class="form-group">
             <label for="exampleFormControlInput1">Description:</label>
             <input type="text" class="form-control" id="description" placeholder="Description">
         </div><br>
+        
+        <div id="ingredientList">
+          <ul id="ingredients-go-here">
+          </ul>
+        </div>
         <div class="form-group">
             <label for="exampleFormControlInput1">Ingredients:</label>
-            <input type="text" class="form-control" id="ingredients" placeholder="Ingredients">
+            <input type="text" class="form-control" id="ingredients" placeholder="Ingredient">
+            <button type="button" class="btn btn-lg btn-primary pull-right" onclick="addIngredient(this)">Add Ingredient</button>
         </div><br>
+        
+        <div id="instructionsList">
+          <ul id="instructions-go-here">
+          </ul>
+        </div>
         <div class="form-group">
             <label for="exampleFormControlInput1">Instructions:</label>
             <input type="text" class="form-control" id="instructions" placeholder="Instuctions">
-        </div><br>
+            <button type="button" class="btn btn-lg btn-primary pull-right" onclick="addInstruction(this)">Add Step</button>
+        
+          </div><br>
             <div class="d-flex justify-content-center">
                 <button type="button" class="btn btn-lg btn-primary pull-right" onclick="submitRecipe()">Submit</button>
             </div>

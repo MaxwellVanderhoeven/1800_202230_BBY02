@@ -26,7 +26,7 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
   <!-- Other libraries go here -->
@@ -41,9 +41,16 @@
 
   <nav id="navbarPlaceholder"></nav>
 
+<div id="UploadPic">
+  <div class="container text-center py-3">
+    <!-- <img id="mypic-goes-here" src="images/drink1.png" width=50 height=50 /> -->
+    <input type="file" id="mypic-input" accept="image/*" />
+  </div>
+</div>
+
 <div id="profile"><br>
-  <img src="https://as2.ftcdn.net/v2/jpg/00/64/67/27/1000_F_64672736_U5kpdGs9keUll8CRQ3p3YaEv2M6qkVY5.jpg" id="profileIcon" class="img-thumbnail" alt="Default Profile Pic">
-  <h1 class="display-3 centerT"><b>John Doe</b></h1>
+  <img src="https://as2.ftcdn.net/v2/jpg/00/64/67/27/1000_F_64672736_U5kpdGs9keUll8CRQ3p3YaEv2M6qkVY5.jpg" id="mypic-goes-here" class="img-thumbnail" alt="Default Profile Pic">
+  <h1 class="display-3 centerT" id="name-goes-here"><b>John Doe</b></h1>
   <p class="centerT"><b><a href="settings.html">Edit Profile</a></b></p>
   <h1 class="display-5 centerT"><b>Category 1</b></h1>
   <p class="lead centerT">
@@ -51,13 +58,15 @@
   </p>
 </div>
 
-      <!---------------------------------------------->
+    <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
     <script src="./scripts/firebaseAPI_BBY02.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/authentication.js"></script>
-    <!-- <script src="./scripts/script.js"></script> -->
+    <script src="./scripts/Profile.js"></script>
+    <script src="./scripts/uploadPhoto.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
 </body>
 
