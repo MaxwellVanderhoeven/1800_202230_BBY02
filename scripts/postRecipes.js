@@ -2,6 +2,10 @@ var ImageFile;      //global variable to store the File Object reference
 var empty = "";
 console.log("dataBaseTest.js loaded");
 
+var instructionTimer = 0;
+var ingredientsTimer = 0;
+var empty = "fe";
+
 var currentUser;
 firebase.auth().onAuthStateChanged(user => {
   if (user) {

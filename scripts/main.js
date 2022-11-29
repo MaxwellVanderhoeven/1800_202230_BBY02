@@ -54,6 +54,9 @@ function displayCards(collection) {
                 //update title and text and image
                 newcard.querySelector('.card-title').innerHTML = recipeName;
                 newcard.querySelector('.card-author').innerHTML = recipeAuthor;
+                // newcard.querySelector('.card-image').src = `./images/${recipePhoto}.jpg`; 
+                newcard.querySelector('a').onclick = () => setRecipeID("Custom");
+
                 newcard.querySelector('.card-description').innerHTML = recipeDescription;
                 newcard.querySelector('i').id = 'save-' + recipeDescription;
                 // this line will call a function to save the recipes to the user's document             
@@ -66,17 +69,22 @@ function displayCards(collection) {
                         document.getElementById('save-' + recipeDescription).innerText = 'favorite';
                         console.log('if favourites: ' + 'save-' + recipeDescription);
                     }
+
                 })
                 newcard.querySelector('.card-image').src = picUrl;
                 console.log(collection);
                 newcard.querySelector('.read-more').href = "eachRecipe.html?recipeName=" + recipeName +"&id=" + recipePhoto;
                 //attach to gallery
                 document.getElementById(collection + "-go-here").appendChild(newcard);
-                //i++;   //if you want to use commented out section
             })
         })
 }
-displayCards("recipes");
+// displayCards("Recipes");
+
+function setRecipeID(id){
+    console.log("setRecipeID called");
+    localStorage.setItem ('hikeID', id.textContent);
+}
 
 
 function saveFavourite(recipeDescription) {
