@@ -1,0 +1,21 @@
+ISSUES BY PRIORITY
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+HIGH
+--------------
+ - No Search Function
+
+MEDIUM
+--------------
+ - Uploadable photos
+ - Display created & liked recipes on profile
+
+LOW
+--------------
+ - Cards not centered
+ - Uploadable profile photo
+ - Ingredients & Instructions have black outline in postRecipe
+ - Deletable ingredients and instructions in postRecipe
+
+PREFRENCE
+--------------
+ - Display username on main, instead of full name
