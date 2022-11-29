@@ -2,11 +2,10 @@ var currentUser;
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
         currentUser = db.collection("users").doc(user.uid);   //global
-        console.log(currentUser);
 
         // the following functions are always called when someone is logged in
         insertName();
-        displayCards();
+        displayCards("recipes");
     } else {
         // No user is signed in.
         console.log("No user is signed in");
@@ -18,9 +17,6 @@ function insertName() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if a user is signed in:
         if (user) {
-            // Do something for the currently logged-in user here: 
-            console.log(user.uid);
-            console.log(user.displayName);
             user_Name = user.displayName;
 
             //method #1:  insert with html only
@@ -29,6 +25,7 @@ function insertName() {
             $("#name-goes-here").text(user_Name); //using jquery
 
         } else {
+            console.log("No user signed in");
             // No user is signed in.
         }
     });
@@ -46,15 +43,18 @@ function writeRecipes() {
         last_updated: firebase.firestore.FieldValue.serverTimestamp()
     });
 }
+
 function displayCards(collection) {
     let cardTemplate = document.getElementById("recipeCardTemplate");
-
-    db.collection(collection).get()
+    currentDate = firebase.firestore.FieldValue.serverTimestamp();
+    db.collection(collection)
+        .where("title", "==", "finalTest")
+        .get()
         .then(snap => {
-            //var i = 1;  //if you want to use commented out section
-            snap.forEach(doc => { //iterate thru each doc
-                var recipeName = doc.data().title;        // get value of the "title" key
-                var recipeAuthor = doc.data().author;   // get value of the "author" key
+            snap.forEach(doc => {
+                var recipeID = doc;
+                var recipeName = doc.data().title;
+                var recipeAuthor = doc.data().author;
                 var recipePhoto = doc.data().photo;
                 var recipeDescription = doc.data().description;
                 let newcard = cardTemplate.content.cloneNode(true);
@@ -62,27 +62,35 @@ function displayCards(collection) {
                 //update title and text and image
                 newcard.querySelector('.card-title').innerHTML = recipeName;
                 newcard.querySelector('.card-author').innerHTML = recipeAuthor;
+                // newcard.querySelector('.card-image').src = `./images/${recipePhoto}.jpg`; 
+                newcard.querySelector('a').onclick = () => setRecipeID("Custom");
+
                 newcard.querySelector('.card-description').innerHTML = recipeDescription;
                 newcard.querySelector('i').id = 'save-' + recipeDescription;
                 // this line will call a function to save the recipes to the user's document             
                 newcard.querySelector('i').onclick = () => saveFavourite(recipeDescription);
                 currentUser.get().then(userDoc => {
                     //get the user name
+
                     var favourites = userDoc.data().favourite;
                     if (favourites.includes(recipeDescription)) {
                         document.getElementById('save-' + recipeDescription).innerText = 'favorite';
                     }
+
                 })
-                newcard.querySelector('.card-image').src = `./images/${recipePhoto}.jpg`;
-                console.log(collection);
+
                 newcard.querySelector('.read-more').href = "eachRecipe.html?recipeName="+recipeName +"&id=" + recipePhoto;
-                //attach to gallery
+                newcard.querySelector('.read-more').href = "recipe.html?recipeID=" + recipeID.id;
                 document.getElementById(collection + "-go-here").appendChild(newcard);
-                //i++;   //if you want to use commented out section
             })
         })
 }
-displayCards("recipes");
+// displayCards("Recipes");
+
+function setRecipeID(id){
+    console.log("setRecipeID called");
+    localStorage.setItem ('hikeID', id.textContent);
+}
 
 //-----------------------------------------------------------------------------
 // This function is called whenever the user clicks on the "bookmark" icon.
