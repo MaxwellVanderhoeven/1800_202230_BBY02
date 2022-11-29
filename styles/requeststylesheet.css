@@ -1,11 +1,12 @@
 
 @font-face {
     font-family: 'requestfont';
-    src: url(./fonts/Typo\ Grotesk\ Rounded\ Demo.otf);
+    src: url(../Odin\ Rounded/Regular/Odin\ Rounded\ -\ Regular.otf);
 }
 .container{
     font-family: "requestfont";
     margin-top: 15px;
+    font-size: larger;
 }
 
 .checkboxes {

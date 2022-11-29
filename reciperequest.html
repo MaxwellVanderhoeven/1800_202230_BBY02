@@ -14,7 +14,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-  <!-- Boostrap Library JS CDN  go here -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
@@ -38,7 +37,6 @@
 </head>
 
 <body>
-
   <nav id="navbarPlaceholder"></nav>
 
   <div class="container">
@@ -52,37 +50,37 @@
       <div class="checkboxes">
         <label for="form-check">What type(s) of meal is your request?</label>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <input class="form-check-input" type="checkbox" value="Appetizer" id="appetizer" name="type">
           <label class="form-check-label" for="flexCheckDefault">
             Appetizer
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <input class="form-check-input" type="checkbox" value="Salads" id="salads" name="type">
           <label class="form-check-label" for="flexCheckDefault">
             Salads
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <input class="form-check-input" type="checkbox" value="MainDishes" id="maindishes" name="type">
           <label class="form-check-label" for="flexCheckDefault">
             Main Dishes
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <input class="form-check-input" type="checkbox" value="Soups" id="soups" name="type">
           <label class="form-check-label" for="flexCheckDefault">
             Soups
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <input class="form-check-input" type="checkbox" value="Vegetables" id="vegetables" name="type">
           <label class="form-check-label" for="flexCheckDefault">
             Vegetables
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+          <input class="form-check-input" type="checkbox" value="Desserts" id="desserts" name="type">
           <label class="form-check-label" for="flexCheckDefault">
             Desserts
           </label>
@@ -108,7 +106,7 @@
       </div>
 
       <div class="d-grid gap-2">
-        <button id="submit" class="btn btn-primary" type="button">Submit</button>
+        <button id="submit" class="btn btn-primary" type="button" onclick="writeRequest(); writeRequestinUser()">Submit</button>
       </div>
     </form>
   </div>
@@ -118,7 +116,7 @@
     <!---------------------------------------------->
     <script src="./scripts/firebaseAPI_BBY02.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/authentication.js"></script>
+    <script src="./scripts/request.js"></script>
 </body>
 
 </html>

@@ -41,35 +41,48 @@
 <body>
 
     <nav id="navbarPlaceholder"></nav>
-
-    <template id="recipeCardTemplate">
-        <div class="card py-2 mx-2" style="width: 40rem; height: auto;">
-            <img class="card-image card-img-top">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <a href="review.html" class="link-primary">Write a review</a>
-                <br>
-                <p class="card-author">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a class="btn btn-primary card-href">Go to recipe instructions</a>
-            </div>
-        </div>
-    </template>
-
     <div class="container">
-        <h1>Your search results</h1>
+        <h2>Details for <span id="requestName"> this Recipe Request</span></h2>
+        <div id="details-go-here"></div>
         <!-- Here is container for cards  -->
         <div class="container">
-            <div id="recipes-go-here" class="row row-cols-auto">
+            <div id="CardGroup" class="row row-cols-auto">
             </div>
         </div>
-  </div>
+</div>
+
+<template id="CardTemplate">
+        <div class="card">
+            <img class="card-img-top">
+            <div class="card-body">
+                <h2 class="title">placeholder</h2>
+                <p class="author">placeholder</p>
+                <p class="date">placeholder</p>
+                <p class="maximum">placeholder</p><br>
+
+                <p>Categories that fit this recipe:</p>
+                <ul>
+                    <li class="appetizer">placeholder</li>
+                    <li class="salad">placeholder</li>
+                    <li class="maindish">placeholder</li>
+                    <li class="soup">placeholder</li>
+                    <li class="vegetable">placeholder</li>
+                    <li class="dessert">placeholder</li>
+                </ul>
+                <br>
+                <p class="description">This card has supporting text below as a natural lead-in to additional content.
+                </p>
+                <a href="postRecipe.html" class="btn btn-primary read-more" id="get-details" style="float: right">Respond to Request!</a>
+            </div>
+        </div>
+</template>
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
     <script src="./scripts/firebaseAPI_BBY02.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/browse.js"></script>
+    <script src="./scripts/authentication.js"></script>
+    <script src="./scripts/eachRequest.js"></script>
 
 </body>
 
