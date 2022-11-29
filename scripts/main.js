@@ -66,15 +66,17 @@ function displayCards(collection) {
                 newcard.querySelector('a').onclick = () => setRecipeID("Custom");
 
                 newcard.querySelector('.card-description').innerHTML = recipeDescription;
-                newcard.querySelector('i').id = 'save-' + recipePhoto;
+                newcard.querySelector('i').id = 'save-' + recipeDescription;
                 // this line will call a function to save the recipes to the user's document             
-                newcard.querySelector('i').onclick = () => saveFavourite(recipePhoto);
+                newcard.querySelector('i').onclick = () => saveFavourite(recipeDescription);
                 currentUser.get().then(userDoc => {
                     //get the user name
-                    // var favourites = userDoc.data().favourite;
-                    // if (favourites.includes(recipePhoto)) {
-                    //     document.getElementById('save-' + recipePhoto).innerText = 'favorite';
-                    // }
+
+                    var favourites = userDoc.data().favourite;
+                    if (favourites.includes(recipeDescription)) {
+                        document.getElementById('save-' + recipeDescription).innerText = 'favorite';
+                    }
+
                 })
 
                 newcard.querySelector('.read-more').href = "eachRecipe.html?recipeName="+recipeName +"&id=" + recipePhoto;
@@ -95,15 +97,15 @@ function setRecipeID(id){
 // It adds the hike to the "bookmarks" array
 // Then it will change the bookmark icon from the hollow to the solid version. 
 //-----------------------------------------------------------------------------
-function saveFavourite(recipePhoto) {
+function saveFavourite(recipeDescription) {
     currentUser.set({
-        favourite: firebase.firestore.FieldValue.arrayUnion(recipePhoto)
+        favourite: firebase.firestore.FieldValue.arrayUnion(recipeDescription)
     }, {
         merge: true
     })
         .then(function () {
             console.log("favourite has been saved for: " + currentUser);
-            var iconID = 'save-' + recipePhoto;
+            var iconID = 'save-' + recipeDescription;
             //console.log(iconID);
             //this is to change the icon of the hike that was saved to "filled"
             document.getElementById(iconID).innerText = 'favorite';
