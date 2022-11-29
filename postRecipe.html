@@ -21,7 +21,6 @@
 
   <!-------------------------------------------------------->
   <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
-  <!-------------------------------------------------------->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
@@ -41,43 +40,80 @@
 <body>
   <nav id="navbarPlaceholder"></nav><br>
   <div class="container">
-    <form>
-      <div class="container text-center py-3">
-        Post an image of your recipe!<br>
-        <div class="container text-center py-3">
-        <img id="mypic-goes-here" src="images/blah.jpg" width=50 height=50/>
-        <input type="file" id="mypic-input" accept="image/*" />
-      </div>       
-      </div>
 
+    <div id="contains">
+      <div id="recipeSumbit">
+        <form>
 
-      <div class="form-group">
-        <label for="exampleFormControlInput1">Recipe Title:</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="ex: Mac and Cheese">
-      </div>
+          <div class="container text-center py-3">
+            <img id="mypic-goes-here" src="images/blah.jpg" width=50 height=50 />
+            <input type="file" id="mypic-input" accept="image/*" />
+          </div>
+          <!-- Title -->
+          <div class="form-group">
+            <label>Recipe Title:</label>
+            <input class="form-control" rows="5" id="title" placeholder="ex: Mac and Cheese">
+          </div>
 
-      <div class="mb-3 mt-3">
-        <label for="comment">Description:</label>
-        <textarea class="form-control" rows="5" id="comment" name="text"
-          placeholder="ex: A quick and easy Mac and Cheese recipe"></textarea>
-      </div>
+          <!-- Description -->
+          <div class="form-group">
+            <label>Description:</label>
+            <textarea class="form-control" rows="5" id="description" placeholder="Description"></textarea>
+          </div>
 
-      <div class="form-group">
-        <label for="exampleFormControlInput1">Ingredients:</label>
-        <input type="email" class="form-control" id="exampleFormControlInput2"
-          placeholder="ex. Cheddar cheese, heavy cream, elbow pasta...">
-      </div>
+          <!-- Ingredients List -->
+          <div id="ingredientList">
+            <h3><br>Ingredients:</h3>
+            <ul id="ingredients-go-here">
+            </ul>
+          </div>
 
-      <div class="mb-3 mt-3">
-        <label for="comment">Instructions:</label>
-        <textarea class="form-control" rows="5" id="comment2" name="text"
-          placeholder="ex: Start by mixing all your dry ingredients together, then..."></textarea>
+          <!-- Ingredients Input -->
+          <div class="form-group">
+            <table>
+              <tr>
+                <td>
+                  <input type="text" class="form-control" id="ingredients" placeholder="Ingredient">
+                </td>
+                <td class="d-grid gap-2">
+                  <button type="button" class="btn btn-primary pull-right" onclick="addIngredient(this)">Add
+                    Ingredient</button>
+                </td>
+              </tr>
+            </table>
+          </div><br>
+
+          <!-- Instructions List -->
+          <div id="instructionsList">
+            <h3>Instructions:</h3>
+            <ul id="instructions-go-here">
+            </ul>
+          </div>
+
+          <!-- Instructions Input -->
+          <div class="form-group">
+            <table>
+              <tr>
+                <td>
+                  <input type="text" class="form-control" id="instructions" placeholder="Instuctions">
+                </td>
+                <td class="d-grid gap-2">
+                  <button type="button" class="btn btn-primary pull-right" onclick="addInstruction(this)">Add
+                    Step</button>
+                </td>
+              </tr>
+            </table>
+            <!-- <button type="button" class="btn btn-lg btn-primary pull-right" onclick="addInstruction(this)">Add Step</button> -->
+          </div><br>
+
+          <!-- Submit Button -->
+          <div class="d-grid gap-2">
+            <button type="button" class="btn btn-primary pull-right" onclick="saveUserInfo()">Post Recipe!</button>
+          </div>
+
+        </form>
       </div>
-      <div class="d-grid gap-2">
-        <button type="button" class="btn btn-primary pull-right" onclick="saveUserInfo()">Post Recipe!</button>
-      </div>
-  </div>
-  </form>
+    </div><br>
   </div>
 
   <!-- Your own JavaScript functions go here    -->

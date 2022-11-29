@@ -1,5 +1,5 @@
 var ImageFile;      //global variable to store the File Object reference
-
+var empty = "";
 console.log("dataBaseTest.js loaded");
 
 var currentUser;
@@ -12,7 +12,49 @@ firebase.auth().onAuthStateChanged(user => {
   }
 });
 
+function addIngredient(target){
+  console.log("addIngredient() Called");
 
+  var getValue = document.getElementById('ingredients');
+
+  if(getValue.length != empty) {
+      var txtVal = document.getElementById('ingredients').value,
+          listNode = document.getElementById('ingredients-go-here'),
+          liNode = document.createElement('LI'),
+          txtNode = document.createTextNode(txtVal);
+
+      liNode.appendChild(txtNode);
+      listNode.appendChild(liNode);
+
+      getValue.value = "";
+      // console.log(getValue.value, empty, getValue.value == empty);
+      // console.log(ingredientsTimer);
+      // ingredientsTimer = ingredientsTimer + 1;
+      // console.log(" ");
+      }
+}
+
+function addInstruction(target){
+  console.log("addInstruction() Called");
+
+  var getValue = document.getElementById('instructions');
+
+  if(getValue.length != empty) {
+      var txtVal = document.getElementById('instructions').value,
+          listNode = document.getElementById('instructions-go-here'),
+          liNode = document.createElement('LI'),
+          txtNode = document.createTextNode(txtVal);
+
+      liNode.appendChild(txtNode);
+      listNode.appendChild(liNode);
+
+      getValue.value = "";
+      // console.log(getValue.value, empty, getValue.value == empty);
+      // console.log(ingredientsTimer);
+      // ingredientsTimer = ingredientsTimer + 1;
+      // console.log(" ");
+      }
+}
 // function submitRecipe() {
 //   console.log("submitRecipe called");
 
@@ -62,16 +104,30 @@ function saveUserInfo() {
   firebase.auth().onAuthStateChanged(function (user) {
 
     var user_Name = user.displayName;
-    var Title = document.getElementById("exampleFormControlInput1").value;
-    var Ingredients = document.getElementById("exampleFormControlInput2").value;
-    var Instructions = document.getElementById("comment2").value;
-    var Description = document.getElementById("comment").value;
+    var Title = document.getElementById("title").value;
+    var ingred = document.querySelectorAll("#ingredients-go-here li");
+    var instruc = document.querySelectorAll("#instructions-go-here li");
+    var Description = document.getElementById("description").value;
+
+    var ingredientsElements = Array.prototype.slice.call(ingred);
+    var instructionsElements = Array.prototype.slice.call(instruc);
+
+    var ingredientsArray = [];
+    var instructionsArray = [];
+
+    for (let insEl = 0; insEl < instructionsElements.length; insEl++) {
+      instructionsArray[insEl] = instructionsElements[insEl].textContent;
+    }
+    for (let ingEl = 0; ingEl < ingredientsElements.length; ingEl++) {
+      ingredientsArray[ingEl] = ingredientsElements[ingEl].textContent;
+    }
+
 
     db.collection("recipes").add({
       title: Title,
       description: Description,
-      ingredients: Ingredients,
-      instructions: Instructions,
+      ingredients: ingredientsArray,
+      instructions: instructionsArray,
       author: user_Name,
       // profilePic: url,
       uploadDate: firebase.firestore.FieldValue.serverTimestamp()
@@ -94,6 +150,7 @@ function saveUserInfo() {
                 .then(function () {
                   console.log('Added Profile Pic URL to Firestore.');
                   console.log('Created recipe with image');
+                  window.location.href = "thanksrecipe.html";
                   // document.getElementById('personalInfoFields').disabled = true;
                 })
             })
