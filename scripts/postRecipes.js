@@ -74,19 +74,12 @@ function submitRecipe() {
   var instructionsArray = [];
   
   // Test logs.
-  console.log("ingred: " + ingred.length);
-  console.log("instruc: " + instruc.length);
-  console.log("ingredientsElements: " + ingredientsElements.length);
-  console.log("instructionsElements: " + instructionsElements.length);
-
-    
-    // Test logs.
-    console.log("\ningred: " + ingred.length);
-    console.log("instruc: " + instruc.length);
-    console.log("ingredientsElements: " + ingredientsElements.length);
-    console.log("instructionsElements: " + instructionsElements.length);
-    console.log("ingredientsArray: " + ingredientsArray.length);
-    console.log("instructionsArray: " + instructionsArray.length + "\n");
+  // console.log("ingred: " + ingred.length);
+  // console.log("instruc: " + instruc.length);
+  // console.log("ingredientsElements: " + ingredientsElements.length);
+  // console.log("instructionsElements: " + instructionsElements.length);
+  // console.log("ingredientsArray: " + ingredientsArray.length);
+  // console.log("instructionsArray: " + instructionsArray.length + "\n");
   
   // Moves text value of both elements to the arrays.
   for (let insEl = 0; insEl < instructionsElements.length; insEl++) {
@@ -96,59 +89,37 @@ function submitRecipe() {
     ingredientsArray[ingEl] = ingredientsElements[ingEl].textContent;
   }
 
-  // Test prints of array
-  console.log("\nPrinting instructionsArray below:");
-  for (let insAr = 0; insAr < instructionsArray.length; insAr++) {
-    console.log(instructionsArray[insAr] + " " + (insAr + "," + instructionsArray.length) + " " +  (insAr > instructionsArray.length));
-  }
- 
-  console.log("\nPrinting ingredients below:");
-  for (let engAr = 0; engAr < ingredientsArray.length; engAr++) {
-    console.log(ingredientsArray[engAr] + " " + (engAr + "," + ingredientsArray.length) + " " + (engAr > ingredientsArray.length));
-  }
-
-  console.log(instructionsArray + " " + ingredientsArray);
-
   let Title = document.getElementById("title").value;
   let Description = document.getElementById("description").value;
 
-  let Title = document.getElementById("exampleFormControlInput1").value;
-  let Ingredients = document.getElementById("exampleFormControlInput2").value;
-  let Instructions = document.getElementById("comment2").value;
-  let Description = document.getElementById("comment").value;
-
-//   console.log("Title:",Title,",  Ingredients:",Ingredients,"  Instructions:",Instructions,"  Description:",Description);
-
   firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-          var currentUser = db.collection("users").doc(user.uid);
-          //get the document for current user.
-          currentUser.get()
-              .then(userDoc => {
-                console.log("Current User:",currentUser.get());
-                console.log(user.uid);
-                //   var userEmail = user.data().userName;
-                  console.log(userEmail);
-                  db.collection("recipes").add({
-                      title : Title,
-                      description: Description,
-                      ingredients: ingredientsArray,
-                      instructions: instructionsArray,
-                      author: currentUser,
-                      photo: "drink1",
-                      reviewsPercent: "Percent",
-                      uploadDate: firebase.firestore.FieldValue.serverTimestamp()
-                  }).then(()=>{
-                    console.log(currentUser);
-                      console.log("Recipe submitted");
-                      window.location.href = "thanksrecipe.html"; //new line added
-                  })
-              })
-                 
-      } else {
-        window.location.href = "login.html"
-          console.log("Must Log In To Submit Recipe");
-      }
+  if (user) {
+    db.collection("users").doc(user.uid)
+      .get()
+      .then(userDoc => {
+        var thisUser = userDoc.data();
+        currentusername = thisUser.username;
+        console.log("thisUser.username: " + currentusername);
+
+    db.collection("recipes").add({
+        title : Title,
+        description: Description,
+        ingredients: ingredientsArray,
+        instructions: instructionsArray,
+        author: currentusername,
+        photo: "drink1",
+        reviewsPercent: "Percent",
+        uploadDate: firebase.firestore.FieldValue.serverTimestamp()
+    }).then(()=>{
+      console.log(currentUser);
+        console.log("Recipe submitted");
+        window.location.href = "thanksrecipe.html"; //new line added
+    })
+  })           
+  } else {
+    window.location.href = "login.html"
+      console.log("Must Log In To Submit Recipe");
+  }
   });
 
 }

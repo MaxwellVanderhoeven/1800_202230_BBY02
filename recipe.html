@@ -30,6 +30,7 @@
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
   <!-- Other libraries go here -->
+  <script type="module" src="/scripts/importing.js"></script>
 
   <!-- Link to styles of your own -->
   <link rel="stylesheet" href="./styles/mainStyleSheet.css">
@@ -45,13 +46,17 @@
 
   <div class="container">
     <p>
-        <h1>Review for <span id="hikeName"></span></h1><br>
+        <h1><span id="hikeName"></span></h1><br>
         <p>Author: <span id="authorName">author</span></p><br>
         <p>Description: <span id="description">description</span></p><br>
-        <p>Ingredients: <span id="ingredients">ingredients</span></p><br>
-        <p>Instructions: <span id="instructions">instructions</span></p><br>
-        <p>Photo: <span id="photo">photo</span></p><br>
-        <p>Rating: <span id="rating">rating</span></p><br>
+
+        <p>Ingredients:</p>
+        <ol id="ingredients"></ol><br>
+        
+        <p>Instructions:</p>
+        <ol id="instructions"></ol>
+        <!-- <p>Photo: <span id="photo">photo</span></p><br> -->
+        <!-- <p>Rating: <span id="rating">rating</span></p><br> -->
         <p>uploadDate: <span id="uploadDate">uploadDate</span></p><br>
     </p>
 </div>
