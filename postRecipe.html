@@ -27,6 +27,7 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
   <!-- Other libraries go here -->
@@ -41,6 +42,15 @@
   <nav id="navbarPlaceholder"></nav><br>
   <div class="container">
     <form>
+      <div class="container text-center py-3">
+        Post an image of your recipe!<br>
+        <div class="container text-center py-3">
+        <img id="mypic-goes-here" src="images/blah.jpg" width=50 height=50/>
+        <input type="file" id="mypic-input" accept="image/*" />
+      </div>       
+      </div>
+
+
       <div class="form-group">
         <label for="exampleFormControlInput1">Recipe Title:</label>
         <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="ex: Mac and Cheese">
@@ -64,7 +74,7 @@
           placeholder="ex: Start by mixing all your dry ingredients together, then..."></textarea>
       </div>
       <div class="d-grid gap-2">
-        <button type="button" class="btn btn-primary pull-right" onclick="submitRecipe()">Post Recipe!</button>
+        <button type="button" class="btn btn-primary pull-right" onclick="saveUserInfo()">Post Recipe!</button>
       </div>
   </div>
   </form>
