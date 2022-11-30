@@ -79,12 +79,12 @@ function displayCards(collection) {
             })
         })
 }
-// displayCards("Recipes");
+displayCards("recipes");
 
-function setRecipeID(id){
-    console.log("setRecipeID called");
-    localStorage.setItem ('hikeID', id.textContent);
+function setRecipeData(id){               // event handler, when write review is clicked, this will be run.
+    localStorage.setItem ('recipeDescription', id);
 }
+
 
 
 function saveFavourite(recipeDescription) {

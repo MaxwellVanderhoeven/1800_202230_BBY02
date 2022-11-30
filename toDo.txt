@@ -3,6 +3,8 @@ ISSUES BY PRIORITY
 HIGH
 --------------
  - No Search Function
+ - Place HTMLs into a folder
+ - Delete unused javascript files
 
 MEDIUM
 --------------

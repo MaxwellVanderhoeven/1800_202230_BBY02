@@ -28,6 +28,7 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script> 
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
   <!-- Other libraries go here -->
 
@@ -52,11 +53,30 @@
   <img src="https://as2.ftcdn.net/v2/jpg/00/64/67/27/1000_F_64672736_U5kpdGs9keUll8CRQ3p3YaEv2M6qkVY5.jpg" id="mypic-goes-here" class="img-thumbnail" alt="Default Profile Pic">
   <h1 class="display-3 centerT" id="name-goes-here"><b>John Doe</b></h1>
   <p class="centerT"><b><a href="settings.html">Edit Profile</a></b></p>
-  <h1 class="display-5 centerT"><b>Category 1</b></h1>
-  <p class="lead centerT">
-    Whatever other information the profile will contain.
-  </p>
+  <h1 class="display-5 centerT"><b></b></h1>
 </div>
+
+<!-- the body of your page goes here -->
+<div class="container">
+  <h1>Your Favourites</h1>
+  <!-- Here is container for cards  -->
+  <div class="container">
+      <div id="recipeCardGroup" class="row row-cols-auto">
+
+      </div>
+  </div>
+</div>
+
+<!-- Templates for general use, not displayed -->
+<template id="CardTemplate">
+  <div class="card py-2 mx-2" style="width: 18rem;">
+      <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+              card's content.</p>
+      </div>
+  </div>
+</template>
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->

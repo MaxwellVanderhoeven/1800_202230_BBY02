@@ -1,34 +1,38 @@
-// console.log("Profile.js loaded");
-
-var currentUser;
 firebase.auth().onAuthStateChanged(user => {
-    if (user) {
-        console.log("A user is logged in, created currentUser");
-        currentUser = db.collection("users").doc(user.uid)
-          .get()
-          .then(queryUsers => {
-            size = queryUsers.size;
-
-            Users = queryUsers.docs;
-            
-            var userDoc = Users[0].data();
-            const displayName = userDoc.username;
-            console.log(displayName);
-          });
-    } else {
-        console.log ("No user is signed in");
-    }
+  if (user) {
+      getFavourites(user)
+  } else {
+      console.log("No user is signed in");
+  }
 });
 
-var currentUser;  
-function insertName() {
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        username = user.displayName;
-        document.getElementById("name-goes-here").innerText = username;
-      } else {
-        // No user is signed in.
-      }
-    });
-  }
-insertName();
+function getFavourites(user) {
+  db.collection("users").doc(user.uid).get()
+      .then(userDoc => {
+          var favourites = userDoc.data().favourite;
+          console.log(favourites);
+
+          let CardTemplate = document.getElementById("CardTemplate");
+          favourites.forEach(thisRecipeID => {
+              console.log(thisRecipeID);
+              db.collection("recipes").where("description", "==", thisRecipeID).get().then(snap => {
+                  size = snap.size;
+                  queryData = snap.docs;
+                  
+                  if (size == 1) {
+                      var doc = queryData[0].data();
+                      var recipeName = doc.title; //gets the name field
+                      var recipeID = doc.description; //gets the unique ID field
+                      let newCard = CardTemplate.content.cloneNode(true);
+                      newCard.querySelector('.card-title').innerHTML = recipeName;
+                      newCard.querySelector('.card-text').innerHTML = recipeID;
+                      recipeCardGroup.appendChild(newCard);
+                  } else {
+                      console.log("Query has more than one data")
+                  }
+
+              })
+
+          });
+      })
+}
