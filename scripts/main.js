@@ -46,10 +46,10 @@ function displayCards(collection) {
             snap.forEach(doc => { //iterate thru each doc
                 var recipeName = doc.data().title;        // get value of the "title" key
                 var recipeAuthor = doc.data().author;   // get value of the "author" key
-                var recipePhoto = doc.data().profilePic;
+                var recipePhoto = doc.data().recipePic;
                 var recipeDescription = doc.data().description;
                 let newcard = cardTemplate.content.cloneNode(true);
-                let picUrl = doc.data().profilePic; 
+                let picUrl = doc.data().recipePic; 
 
                 //update title and text and image
                 newcard.querySelector('.card-title').innerHTML = recipeName;

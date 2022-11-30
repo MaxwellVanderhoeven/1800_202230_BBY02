@@ -1,8 +1,5 @@
-function uploadProfilePic() {
-    // console.log("uploadProfilePic called");
-
-    // Let's assume my storage is only enabled for authenticated users 
-    // This is set in your firebase console storage "rules" tab
+function uploadrecipePic() {
+    console.log("uploadrecipePic called");
 
     firebase.auth().onAuthStateChanged(function (user) {
         var fileInput = document.getElementById("mypic-input");   // pointer #1
@@ -53,25 +50,21 @@ function showUploadedPicture(){
     })
 }
 
-function displayUserProfilePic() {
-//   console.log("displayUserProfilePic called");
+function displayUserrecipePic() {
+  console.log("displayUserrecipePic called");
 
   firebase.auth().onAuthStateChanged(function (user) {      //get user object
       db.collection("users").doc(user.uid)                  //use user's uid
           .get()                                            //READ the doc
           .then(function (doc) {
-              var picUrl = doc.data().profilePic;           //extract pic url
+              var picUrl = doc.data().recipePic;           //extract pic url
 
-              // use this line if "mypicdiv" is a "div"
-              //$("#mypicdiv").append("<img src='" + picUrl + "'>")
-              
-              // use this line if "mypic-goes-here" is an "img" 
               $("#mypic-goes-here").attr("src", picUrl);
           })
   })
 }
 
-uploadProfilePic();             //SOLO          Works if solo disabled
+uploadrecipePic();             //SOLO          Works if solo disabled
 showUploadedPicture();          //SOLO          Works if solo disabled
-displayUserProfilePic();        //NOT SOLO      Works if solo disabled
+displayUserrecipePic();        //NOT SOLO      Works if solo disabled
 
