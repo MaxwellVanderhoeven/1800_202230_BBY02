@@ -25,7 +25,9 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
   <!-- Other libraries go here -->
 
@@ -43,6 +45,10 @@
       <div id="recipeSumbit">
         <form>
 
+          <div class="container text-center py-3">
+            <img id="mypic-goes-here" src="images/blah.jpg"/>
+            <input type="file" id="mypic-input" accept="image/*" />
+          </div>
           <!-- Title -->
           <div class="form-group">
             <label>Recipe Title:</label>
@@ -54,7 +60,6 @@
             <label>Description:</label>
             <textarea class="form-control" rows="5" id="description" placeholder="Description"></textarea>
           </div>
-          
           <!-- Ingredients List -->
           <div id="ingredientList">
             <h3><br>Ingredients:</h3>
@@ -67,15 +72,16 @@
             <table>
               <tr>
                 <td>
-                  <input type="text" class="form-control" id="ingredients" placeholder="Ingredient">             
+                  <input type="text" class="form-control" id="ingredients" placeholder="Ingredient">
                 </td>
                 <td class="d-grid gap-2">
-                  <button type="button" class="btn btn-primary pull-right" onclick="addIngredient(this)">Add Ingredient</button>
+                  <button type="button" class="btn btn-primary pull-right" onclick="addIngredient(this)">Add
+                    Ingredient</button>
                 </td>
               </tr>
             </table>
           </div><br>
-          
+
           <!-- Instructions List -->
           <div id="instructionsList">
             <h3>Instructions:</h3>
@@ -91,7 +97,8 @@
                   <input type="text" class="form-control" id="instructions" placeholder="Instuctions">
                 </td>
                 <td class="d-grid gap-2">
-                  <button type="button" class="btn btn-primary pull-right" onclick="addInstruction(this)">Add Step</button>
+                  <button type="button" class="btn btn-primary pull-right" onclick="addInstruction(this)">Add
+                    Step</button>
                 </td>
               </tr>
             </table>
@@ -100,7 +107,7 @@
 
           <!-- Submit Button -->
           <div class="d-grid gap-2">
-            <button type="button" class="btn btn-primary pull-right" onclick="submitRecipe()">Post Recipe!</button>
+            <button type="button" class="btn btn-primary pull-right" onclick="saveUserInfo()">Post Recipe!</button>
           </div>
 
         </form>

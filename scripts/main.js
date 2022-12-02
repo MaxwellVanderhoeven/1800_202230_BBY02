@@ -5,6 +5,8 @@ firebase.auth().onAuthStateChanged(user => {
 
         // the following functions are always called when someone is logged in
         insertName();
+        displayCards();
+        showUploadedPicture();
         displayCards("recipes");
     } else {
         // No user is signed in.
@@ -17,6 +19,8 @@ function insertName() {
     firebase.auth().onAuthStateChanged(user => {
         // Check if a user is signed in:
         if (user) {
+            console.log(user.uid);
+            console.log(user.displayName);
             user_Name = user.displayName;
 
             //method #1:  insert with html only
@@ -30,34 +34,22 @@ function insertName() {
         }
     });
 }
-insertName();
-
-function writeRecipes() {
-    //define a variable for the collection you want to create in Firestore to populate data
-    var recipesRef = db.collection("Recipes");
-
-    recipesRef.add({
-        title: "Casserole",
-        author: "User 1",
-        photo: "ratatouille",
-        last_updated: firebase.firestore.FieldValue.serverTimestamp()
-    });
-}
+insertName(); //run the function
 
 function displayCards(collection) {
     let cardTemplate = document.getElementById("recipeCardTemplate");
-    currentDate = firebase.firestore.FieldValue.serverTimestamp();
-    db.collection(collection)
-        // .where("title", "==", "testing1234")
-        .get()
+
+    db.collection(collection).orderBy("uploadDate", "desc")
+    .limit(10).get()
         .then(snap => {
-            snap.forEach(doc => {
-                var recipeID = doc;
-                var recipeName = doc.data().title;
-                var recipeAuthor = doc.data().author;
-                var recipePhoto = doc.data().photo;
+            //var i = 1;  //if you want to use commented out section
+            snap.forEach(doc => { //iterate thru each doc
+                var recipeName = doc.data().title;        // get value of the "title" key
+                var recipeAuthor = doc.data().author;   // get value of the "author" key
+                var recipePhoto = doc.data().recipePic;
                 var recipeDescription = doc.data().description;
                 let newcard = cardTemplate.content.cloneNode(true);
+                let picUrl = doc.data().recipePic; 
 
                 //update title and text and image
                 newcard.querySelector('.card-title').innerHTML = recipeName;
@@ -66,46 +58,65 @@ function displayCards(collection) {
                 newcard.querySelector('a').onclick = () => setRecipeID("Custom");
 
                 newcard.querySelector('.card-description').innerHTML = recipeDescription;
-                newcard.querySelector('i').id = 'save-' + recipePhoto;
+                newcard.querySelector('i').id = 'save-' + recipeDescription;
                 // this line will call a function to save the recipes to the user's document             
-                newcard.querySelector('i').onclick = () => saveFavourite(recipePhoto);
+                newcard.querySelector('i').onclick = () => saveFavourite(recipeDescription);
                 currentUser.get().then(userDoc => {
                     //get the user name
-                    // var favourites = userDoc.data().favourite;
-                    // if (favourites.includes(recipePhoto)) {
-                    //     document.getElementById('save-' + recipePhoto).innerText = 'favorite';
-                    // }
-                })
+                    
+                    var favourites = userDoc.data().favourite;
+                    if (favourites.includes(recipeDescription)) {
+                        document.getElementById('save-' + recipeDescription).innerText = 'favorite';
+                        console.log('if favourites: ' + 'save-' + recipeDescription);
+                    }
 
-                newcard.querySelector('.read-more').href = "eachRecipe.html?recipeName="+recipeName +"&id=" + recipePhoto;
-                newcard.querySelector('.read-more').href = "recipe.html?recipeID=" + recipeID.id;
+                })
+                newcard.querySelector('.card-image').src = picUrl;
+                console.log(collection);
+                newcard.querySelector('.read-more').href = "eachRecipe.html?recipeName=" + recipeName +"&id=" + recipePhoto;
+                //attach to gallery
                 document.getElementById(collection + "-go-here").appendChild(newcard);
             })
         })
 }
-// displayCards("Recipes");
+displayCards("recipes");
 
-function setRecipeID(id){
-    console.log("setRecipeID called");
-    localStorage.setItem ('hikeID', id.textContent);
+function setRecipeData(id){               // event handler, when write review is clicked, this will be run.
+    localStorage.setItem ('recipeDescription', id);
 }
 
-//-----------------------------------------------------------------------------
-// This function is called whenever the user clicks on the "bookmark" icon.
-// It adds the hike to the "bookmarks" array
-// Then it will change the bookmark icon from the hollow to the solid version. 
-//-----------------------------------------------------------------------------
-function saveFavourite(recipePhoto) {
+
+
+function saveFavourite(recipeDescription) {
     currentUser.set({
-        favourite: firebase.firestore.FieldValue.arrayUnion(recipePhoto)
+        favourite: firebase.firestore.FieldValue.arrayUnion(recipeDescription)
     }, {
         merge: true
     })
         .then(function () {
             console.log("favourite has been saved for: " + currentUser);
-            var iconID = 'save-' + recipePhoto;
-            //console.log(iconID);
-            //this is to change the icon of the hike that was saved to "filled"
+            var iconID = 'save-' + recipeDescription;
+            console.log("icon ID is: " + iconID);
+            //this is to change the icon of the recipe that was saved to "filled"
             document.getElementById(iconID).innerText = 'favorite';
         });
 }
+
+function showUploadedPicture(){
+    const fileInput = document.getElementById("mypic-input");   // pointer #1 (points to input file)
+    const image = document.getElementById("mypic-goes-here");   // pointer #2 (points to where picture should be displayed)
+
+    //attach listener to input file
+    //when this file changes, do something
+    fileInput.addEventListener('change', function(e){
+
+        //the change event returns a file "e.target.files[0]"
+        var blob = URL.createObjectURL(e.target.files[0]);
+
+        //change the DOM img element source to point to this file
+        image.src = blob;    //assign the "src" property of the "img" tag
+    })
+}
+
+
+

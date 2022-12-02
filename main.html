@@ -28,6 +28,7 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
   <!-- Other libraries go here -->
 
@@ -51,8 +52,13 @@
 
   <!-- Templates for general use, not displayed -->
   <template id="recipeCardTemplate">
+    
     <div class="card py-2 mx-2" style="width: 20rem; height: auto;">
-      <img style="width: 280px; height: 200px;" class="card-image card-img-top">
+      
+      <img style="width: 280px; height: 200px;" class="card-image card-img-top"
+       id="mypic-goes-here" src="images/blah.jpg"/>
+       <div id="mypic-input" type="file"> </div>
+
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <a href="review.html" class="link-primary">Write a review</a>
@@ -70,7 +76,7 @@
   <main class="container-fluid">
     <br>
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner carouselleDiv">
+      <div class="carousel-inner carouselleDiv" style="width: 100%; height: 500px;">
         <div class="carousel-item active">
           <img src="images/pie.jpg" class="d-block w-100" alt="First Featured">
         </div>
@@ -78,7 +84,7 @@
           <img src="images/ratatouille.jpg" class="d-block w-100" alt="Second Featured">
         </div>
         <div class="carousel-item">
-          <img src="https://dummyimage.com/1920x1080/000/fff&text=Third+Featured+Recipe" class="d-block w-100"
+          <img src="images/sandwich.jpg" class="d-block w-100"
             alt="Third Featured">
         </div>
       </div>
@@ -110,6 +116,7 @@
   <script src="./scripts/firebaseAPI_BBY02.js"></script>
   <script src="./scripts/skeleton.js"></script>
   <script src="./scripts/main.js"></script>
+  <script src="./scripts/postRecipes.js"></script>
   <!-- <script src="./scripts/script.js"></script> -->
 
 </body>

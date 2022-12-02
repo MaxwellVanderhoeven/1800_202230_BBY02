@@ -27,16 +27,7 @@ function populateRequests() {
                 var soup = doc.data().soup;
                 var vegetable = doc.data().vegetable;
                 var dessert = doc.data().dessert;
-
-                let items = [
-                    {appetizer},
-                    {salads},
-                    {maindish},
-                    {soup},
-                    {vegetable},
-                    {dessert}
-                ]
-
+                
                 let requestCard = requestCardTemplate.content.cloneNode(true);
      //equiv getElementByClassName
                 requestCard.querySelector('.author').innerHTML = `Requester: ${author}`;

@@ -30,7 +30,7 @@ function displayCards(collection) {
             snap.forEach(doc => { //iterate thru each doc
                 var recipeName = doc.data().title;        // get value of the "title" key
                 var recipeAuthor = doc.data().author;   // get value of the "author" key
-				var recipePhoto = doc.data().photo;    
+				var recipePhoto = doc.data().recipePic;    
                 let newcard = cardTemplate.content.cloneNode(true);
                 
 
@@ -49,4 +49,4 @@ function displayCards(collection) {
         })
 }
 
-displayCards("Recipes");
+displayCards("recipes");
