@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <title>EZ Recipes</title>
     <meta name="comp1800 template" content="My 1800 App">
 
@@ -29,7 +30,7 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <!-- Other libraries go here -->
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
     <!-- Link to styles of your own -->
     <link rel="stylesheet" href="../styles/mainStyleSheet.css">
     <link rel="stylesheet" href="../styles/navbarstylesheet.css">
@@ -41,34 +42,45 @@
 
     <nav id="navbarPlaceholder"></nav>
 
-    <template id="recipeCardTemplate">
-        <div class="card py-2 mx-2" style="width: 40rem; height: auto;">
-            <img class="card-image card-img-top">
+    <!-- the body of your page goes here -->
+    <div class="container">
+        <h1>Current Recipe Requests</h1>
+        <!-- Here is container for cards  -->
+        <div class="container">
+            <div id="requestsCardGroup" class="row row-cols-auto">
+            </div>
+        </div>
+    </div>
+
+    <!-- Templates for general use, not displayed -->
+    <template id="CardTemplate">
+        <div class="card py-2 mx-2" style="width: 18rem;">
+            
+            <img class="card-image card-img-top" src=" ..." alt="...">
             <div class="card-body">
                 <h5 class="card-title">Card title</h5>
-                <a href="review.html" class="link-primary">Write a review</a>
-                <br>
-                <p class="card-author">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a class="btn btn-primary card-href">Go to recipe instructions</a>
+                <p class="card-description">placeholder</p>
+                <a href="eachRequest.html" class="btn btn-primary read-more" id="get-details" style="float: right">Get Details</a>
             </div>
         </div>
     </template>
 
-    <div class="container">
-        <h1>Your search results</h1>
+    <div class="container-fluid" style="justify-content: center;">
         <!-- Here is container for cards  -->
-        <div class="container">
-            <div id="recipes-go-here" class="row row-cols-auto">
+        <div class="container-fluid justify-content-center">
+            <div id="Requests-go-here" class="row row-cols-auto">
             </div>
         </div>
-    </div>
+      </div>
+
+
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
     <script src="../scripts/firebaseAPI_BBY02.js"></script>
     <script src="../scripts/skeleton.js"></script>
-    <script src="../scripts/browse.js"></script>
+    <script src="../scripts/authentication.js"></script>
+    <script src="../scripts/displayrequests.js"></script>
 
 </body>
 

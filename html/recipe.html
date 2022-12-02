@@ -30,11 +30,12 @@
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
   <!-- Other libraries go here -->
+  <script type="module" src="/scripts/importing.js"></script>
 
   <!-- Link to styles of your own -->
-  <link rel="stylesheet" href="./styles/mainStyleSheet.css">
-  <link rel="stylesheet" href="./styles/navbarstylesheet.css">
-  <link rel="stylesheet" href="./styles/requeststylesheet.css">
+  <link rel="stylesheet" href="../styles/mainStyleSheet.css">
+  <link rel="stylesheet" href="../styles/navbarstylesheet.css">
+  <link rel="stylesheet" href="../styles/requeststylesheet.css">
 </head>
 
 <body>
@@ -42,38 +43,37 @@
   <nav id="navbarPlaceholder"></nav>
 
   <!-- Templates for general use, not displayed -->
-  <template id="recipeCardTemplate">
-    <div class="card py-2 mx-2" style="width: 20rem; height: auto;">
-        <img class="card-image card-img-top">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <a href="review.html" class="link-primary">Write a review</a>
-            <br>
-            <p class="card-author">Some quick example text to build on the card title and make up the bulk of the
-                card's content.</p>
-            <a href="RecipePage.html" class="btn btn-primary card-href">Go to recipe instructions</a>
-        </div>
+  <template id="CardTemplate">
+    <div class="card">
+      <div class="card-body">
+        <h1><span id="recipeName"></span></h1><br>
+        <p>Author: <span id="authorName">author</span></p><br>
+        <p>Description: <span id="description">description</span></p><br>
+
+        <p>Ingredients:</p>
+        <ol id="ingredients"></ol><br>
+        
+        <p>Instructions:</p>
+        <ol id="instructions"></ol>
+        <!-- <p>Photo: <span id="photo">photo</span></p><br> -->
+        <!-- <p>Rating: <span id="rating">rating</span></p><br> -->
+        <p>uploadDate: <span id="uploadDate">uploadDate</span></p><br>
     </div>
+  </div>
 </template>
 
-  
-
-  <div class="container-fluid">
-    <h1>Recipes found: </h1>
-    <!-- Here is container for cards  -->
-    <div class="container-fluid">
-        <div id="Recipes-go-here" class="row row-cols-auto">
-        </div>
-    </div>
+<div class="container">
+  <div id="CardGroup" class="row row-cols-auto">
+  </div>
 </div>
 
-  <!---------------------------------------------->
+    <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
-    <script src="./scripts/firebaseAPI_BBY02.js"></script>
-    <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/searchRecipes.js"></script>
-    <!-- <script src="./scripts/script.js"></script> -->
+    <script src="../scripts/firebaseAPI_BBY02.js"></script>
+    <script src="../scripts/skeleton.js"></script>
+    <script src="../scripts/recipe.js"></script>
+    <!-- <script src="../scripts/script.js"></script> -->
 
 </body>
 

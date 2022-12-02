@@ -67,7 +67,7 @@ function displayCards(collection) {
                     var favourites = userDoc.data().favourite;
                     if (favourites.includes(recipeDescription)) {
                         document.getElementById('save-' + recipeDescription).innerText = 'favorite';
-                        console.log('if favourites: ' + 'save-' + recipeDescription);
+                        // console.log('if favourites: ' + 'save-' + recipeDescription);
                     }
 
                 })

@@ -1,5 +1,5 @@
-function uploadrecipePic() {
-    console.log("uploadrecipePic called");
+function uploadProfilePic() {
+    console.log("uploadProfilePic called");
 
     firebase.auth().onAuthStateChanged(function (user) {
         var fileInput = document.getElementById("mypic-input");   // pointer #1
@@ -50,21 +50,21 @@ function showUploadedPicture(){
     })
 }
 
-function displayUserrecipePic() {
-  console.log("displayUserrecipePic called");
+function displayUserProfilePic() {
+  console.log("displayUserProfilePic called");
 
   firebase.auth().onAuthStateChanged(function (user) {      //get user object
       db.collection("users").doc(user.uid)                  //use user's uid
           .get()                                            //READ the doc
           .then(function (doc) {
-              var picUrl = doc.data().recipePic;           //extract pic url
+              var picUrl = doc.data().profilePic;           //extract pic url
 
               $("#mypic-goes-here").attr("src", picUrl);
           })
   })
 }
 
-uploadrecipePic();             //SOLO          Works if solo disabled
+uploadProfilePic();             //SOLO          Works if solo disabled
 showUploadedPicture();          //SOLO          Works if solo disabled
-displayUserrecipePic();        //NOT SOLO      Works if solo disabled
+displayUserProfilePic();        //NOT SOLO      Works if solo disabled
 
