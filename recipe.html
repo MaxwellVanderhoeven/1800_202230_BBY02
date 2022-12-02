@@ -43,10 +43,10 @@
   <nav id="navbarPlaceholder"></nav>
 
   <!-- Templates for general use, not displayed -->
-
-  <div class="container">
-    <p>
-        <h1><span id="hikeName"></span></h1><br>
+  <template id="CardTemplate">
+    <div class="card">
+      <div class="card-body">
+        <h1><span id="recipeName"></span></h1><br>
         <p>Author: <span id="authorName">author</span></p><br>
         <p>Description: <span id="description">description</span></p><br>
 
@@ -58,10 +58,16 @@
         <!-- <p>Photo: <span id="photo">photo</span></p><br> -->
         <!-- <p>Rating: <span id="rating">rating</span></p><br> -->
         <p>uploadDate: <span id="uploadDate">uploadDate</span></p><br>
-    </p>
+    </div>
+  </div>
+</template>
+
+<div class="container">
+  <div id="CardGroup" class="row row-cols-auto">
+  </div>
 </div>
 
-  <!---------------------------------------------->
+    <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
     <script src="./scripts/firebaseAPI_BBY02.js"></script>
