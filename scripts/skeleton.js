@@ -1,7 +1,7 @@
 // console.log("skeleton.js loaded");
 
 function loadSkeleton(){
-    console.log($('#navbarPlaceholder').load('./nav.html'));
+    $('#navbarPlaceholder').load('./nav.html');
 }
 loadSkeleton();  //invoke the function
 

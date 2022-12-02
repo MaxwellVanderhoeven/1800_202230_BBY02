@@ -2,9 +2,9 @@ var ImageFile;      //global variable to store the File Object reference
 var empty = "";
 console.log("dataBaseTest.js loaded");
 
-var instructionTimer = 0;
-var ingredientsTimer = 0;
-var empty = "fe";
+var empty = "";
+
+console.log()
 
 var currentUser;
 firebase.auth().onAuthStateChanged(user => {
@@ -125,7 +125,6 @@ function saveUserInfo() {
     for (let ingEl = 0; ingEl < ingredientsElements.length; ingEl++) {
       ingredientsArray[ingEl] = ingredientsElements[ingEl].textContent;
     }
-
 
     db.collection("recipes").add({
       title: Title,
