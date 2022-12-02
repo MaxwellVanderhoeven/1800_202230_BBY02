@@ -30,54 +30,45 @@
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
   <!-- Other libraries go here -->
+  <script type="module" src="/scripts/importing.js"></script>
 
   <!-- Link to styles of your own -->
-  <link rel="stylesheet" href="./styles/mainStyleSheet.css">
-  <link rel="stylesheet" href="./styles/navbarstylesheet.css">
-  <link rel="stylesheet" href="./styles/requeststylesheet.css">
+  <link rel="stylesheet" href="../styles/mainStyleSheet.css">
+  <link rel="stylesheet" href="../styles/navbarstylesheet.css">
+  <link rel="stylesheet" href="../styles/requeststylesheet.css">
 </head>
 
 <body>
-  <div id="exclusionPage">
-    <nav id="navbarPlaceholder"></nav>
 
+  <nav id="navbarPlaceholder"></nav>
 
-    <br>
-    <h1 class="display-2"><b>Permanent Exclusions</b></h1>
-    <br>
-    <h1 class="display-6"><b>Add</b></h1>
+  <!-- Templates for general use, not displayed -->
 
-    <div class="input-group">
-      <input type="search" class="form-control rounded" placeholder="Ingredient" aria-label="Search" />
-      <button type="button" class="btn btn-outline-primary">&nbsp;&nbsp;&nbsp;Add Exculusion&nbsp;&nbsp;&nbsp;</button>
-    </div><br>
+  <div class="container">
+    <p>
+        <h1><span id="hikeName"></span></h1><br>
+        <p>Author: <span id="authorName">author</span></p><br>
+        <p>Description: <span id="description">description</span></p><br>
 
-    <br>
-    <h1 class="display-6"><b>Remove</b></h1>
-    <div id="removeExclusion">
-      <table id="margins">
-        <tr>
-          <td id="tdMain">
-            <p>Ingredient</p>
-          </td>
-          <td id="tdSide" class="buttonAgainstSide">
-            <aside><button type="button" class="btn btn-danger position-relative">
-                Remove <span
-                  class="position-absolute top-0 start-100 translate-middle border border-light rounded-circle bg-danger"><span
-                    class="visually-hidden">unread messages</span></span>
-              </button></aside>
-        </tr>
-      </table>
-    </div>
+        <p>Ingredients:</p>
+        <ol id="ingredients"></ol><br>
+        
+        <p>Instructions:</p>
+        <ol id="instructions"></ol>
+        <!-- <p>Photo: <span id="photo">photo</span></p><br> -->
+        <!-- <p>Rating: <span id="rating">rating</span></p><br> -->
+        <p>uploadDate: <span id="uploadDate">uploadDate</span></p><br>
+    </p>
+</div>
 
-
-     <!---------------------------------------------->
+  <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
-    <script src="./scripts/firebaseAPI_BBY02.js"></script>
-    <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/authentication.js"></script>
-    <!-- <script src="./scripts/script.js"></script> -->
+    <script src="../scripts/firebaseAPI_BBY02.js"></script>
+    <script src="../scripts/skeleton.js"></script>
+    <script src="../scripts/recipe.js"></script>
+    <!-- <script src="../scripts/script.js"></script> -->
+
 </body>
 
 </html>

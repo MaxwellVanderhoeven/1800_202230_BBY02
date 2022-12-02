@@ -30,11 +30,11 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
     <!-- Other libraries go here -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
     <!-- Link to styles of your own -->
-    <link rel="stylesheet" href="./styles/mainStyleSheet.css">
-    <link rel="stylesheet" href="./styles/navbarstylesheet.css">
-    <link rel="stylesheet" href="./styles/requeststylesheet.css">
+    <link rel="stylesheet" href="../styles/mainStyleSheet.css">
+    <link rel="stylesheet" href="../styles/navbarstylesheet.css">
+    <link rel="stylesheet" href="../styles/requeststylesheet.css">
 </head>
 
 
@@ -42,45 +42,24 @@
 
     <nav id="navbarPlaceholder"></nav>
 
+    
     <!-- the body of your page goes here -->
-    <div class="container">
-        <h1>Current Recipe Requests</h1>
-        <!-- Here is container for cards  -->
-        <div class="container">
-            <div id="requestsCardGroup" class="row row-cols-auto">
-            </div>
+    <div class="card text-center">
+        <div class="card-header">
+          Request received successfully!
         </div>
-    </div>
-
-    <!-- Templates for general use, not displayed -->
-    <template id="CardTemplate">
-        <div class="card py-2 mx-2" style="width: 18rem;">
-            
-            <img class="card-image card-img-top" src=" ..." alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-description">placeholder</p>
-                <a href="eachRequest.html" class="btn btn-primary read-more" id="get-details" style="float: right">Get Details</a>
-            </div>
-        </div>
-    </template>
-
-    <div class="container-fluid" style="justify-content: center;">
-        <!-- Here is container for cards  -->
-        <div class="container-fluid justify-content-center">
-            <div id="Requests-go-here" class="row row-cols-auto">
-            </div>
+        <div class="card-body">
+          <h5 class="card-title">Hang tight! We'll have a recipe for you soon.</h5>
+          <p class="card-text"></p>
+          <a href="main.html" class="btn btn-primary">See More Recipes</a>
         </div>
       </div>
-
-
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
-    <script src="./scripts/firebaseAPI_BBY02.js"></script>
-    <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/authentication.js"></script>
-    <script src="./scripts/displayrequests.js"></script>
+    <script src="../scripts/firebaseAPI_BBY02.js"></script>
+    <script src="../scripts/skeleton.js"></script>
+    <script src="../scripts/authentication.js"></script>
 
 </body>
 

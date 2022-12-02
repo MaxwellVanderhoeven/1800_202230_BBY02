@@ -53,8 +53,56 @@ function addInstruction(target){
       listNode.appendChild(liNode);
 
       getValue.value = "";
+      // console.log(getValue.value, empty, getValue.value == empty);
+      // console.log(ingredientsTimer);
+      // ingredientsTimer = ingredientsTimer + 1;
+      // console.log(" ");
       }
 }
+// function submitRecipe() {
+//   console.log("submitRecipe called");
+
+//   let Title = document.getElementById("exampleFormControlInput1").value;
+//   let Ingredients = document.getElementById("exampleFormControlInput2").value;
+//   let Instructions = document.getElementById("comment2").value;
+//   let Description = document.getElementById("comment").value;
+//   let profilePic = document.getElementById("mypic-input").value;
+
+//   console.log("Title:", Title, ",  Ingredients:", Ingredients, "  Instructions:", Instructions, "  Description:", Description);
+
+//   firebase.auth().onAuthStateChanged(user => {
+//     if (user) {
+//       var currentUser = db.collection("users").doc(user.uid);
+//       //get the document for current user.
+//       currentUser.get()
+//         .then(userDoc => {
+//           console.log("Current User:", currentUser.get());
+//           console.log(user.uid);
+//           var user_Name = user.displayName;
+//           //var userEmail = userDoc.data().email;
+//           db.collection("recipes").add({
+//             title: Title,
+//             description: Description,
+//             ingredients: Ingredients,
+//             instructions: Instructions,
+//             author: user_Name,
+//             profilePic: picUrl,
+//             reviewsPercent: "Percent",
+//             uploadDate: firebase.firestore.FieldValue.serverTimestamp()
+//           }).then(() => {
+//             console.log(currentUser);
+//             console.log("Recipe submitted");
+//             window.location.href = "thanksrecipe.html"; //new line added
+//           })
+//         })
+
+//     } else {
+//       window.location.href = "login.html"
+//       console.log("Must Log In To Submit Recipe");
+//     }
+//   });
+
+// }
 
 function saveUserInfo() {
   firebase.auth().onAuthStateChanged(function (user) {
@@ -85,6 +133,7 @@ function saveUserInfo() {
       ingredients: ingredientsArray,
       instructions: instructionsArray,
       author: user_Name,
+      // profilePic: url,
       uploadDate: firebase.firestore.FieldValue.serverTimestamp()
     })
       .then(function (doc) {

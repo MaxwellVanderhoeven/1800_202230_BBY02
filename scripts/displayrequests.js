@@ -12,7 +12,7 @@ function displayCards(collection) {
                 //update title and text and image
                 newcard.querySelector('.card-title').innerHTML = requestName;
                 newcard.querySelector('.card-description').innerHTML = requestDescription;
-                newcard.querySelector('.card-image').src = "./images/help.png"; 
+                newcard.querySelector('.card-image').src = "../images/help.png"; 
                 console.log(collection);
                 newcard.querySelector('.read-more').href = "eachRequest.html?requestName=" + requestName +"&id=" + requestDescription;
                 //attach to gallery
