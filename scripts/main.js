@@ -30,7 +30,7 @@ function insertName() {
         }
     });
 }
-insertName(); //run the function
+insertName();
 
 function writeRecipes() {
     //define a variable for the collection you want to create in Firestore to populate data
@@ -48,7 +48,7 @@ function displayCards(collection) {
     let cardTemplate = document.getElementById("recipeCardTemplate");
     currentDate = firebase.firestore.FieldValue.serverTimestamp();
     db.collection(collection)
-        .where("title", "==", "finalTest")
+        // .where("title", "==", "testing1234")
         .get()
         .then(snap => {
             snap.forEach(doc => {

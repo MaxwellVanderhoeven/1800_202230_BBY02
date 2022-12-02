@@ -1,14 +1,24 @@
-console.log("dataBaseTest.js loaded");
+console.log("postRecipe.js loaded");
 
-var instructionTimer = 0;
-var ingredientsTimer = 0;
-var empty = "fe";
+var empty = "";
+
+console.log()
 
 var currentUser;
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
         console.log("A user is logged in, created currentUser");
         currentUser = db.collection("users").doc(user.uid);
+
+        db.collection("users").doc(user.uid)
+        .get()
+        .then(userDoc => {
+          thisUser = userDoc.data();
+          recipes = thisUser.createdRecipes;
+          console.log("thisUser.username: " + recipes);
+
+        })
+
     } else {
         console.log ("No user is signed in");
     }
@@ -73,14 +83,7 @@ function submitRecipe() {
   var ingredientsArray = [];
   var instructionsArray = [];
   
-  // Test logs.
-  // console.log("ingred: " + ingred.length);
-  // console.log("instruc: " + instruc.length);
-  // console.log("ingredientsElements: " + ingredientsElements.length);
-  // console.log("instructionsElements: " + instructionsElements.length);
-  // console.log("ingredientsArray: " + ingredientsArray.length);
-  // console.log("instructionsArray: " + instructionsArray.length + "\n");
-  
+
   // Moves text value of both elements to the arrays.
   for (let insEl = 0; insEl < instructionsElements.length; insEl++) {
     instructionsArray[insEl] = instructionsElements[insEl].textContent;
@@ -101,19 +104,26 @@ function submitRecipe() {
         currentusername = thisUser.username;
         console.log("thisUser.username: " + currentusername);
 
-    db.collection("recipes").add({
+    db.collection("recipes")
+      .add({
         title : Title,
         description: Description,
         ingredients: ingredientsArray,
         instructions: instructionsArray,
         author: currentusername,
+        authorID: user.uid,
         photo: "drink1",
         reviewsPercent: "Percent",
         uploadDate: firebase.firestore.FieldValue.serverTimestamp()
-    }).then(()=>{
-      console.log(currentUser);
-        console.log("Recipe submitted");
-        window.location.href = "thanksrecipe.html"; //new line added
+    }).then((docRef)=>{
+      var authorArray = db.collection("users").doc(user.uid)
+
+      authorArray.update({
+        createdRecipes: firebase.firestore.FieldValue.arrayUnion(docRef.id)
+      })
+      console.log("docRef.id\t", docRef.id);
+      console.log("Recipe submitted");
+      window.location.href = "thanksrecipe.html"; //new line added
     })
   })           
   } else {

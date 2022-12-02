@@ -38,7 +38,7 @@ function populateRequests() {
                 ]
 
                 let requestCard = requestCardTemplate.content.cloneNode(true);
-                requestCard.querySelector('.title').innerHTML = title;     //equiv getElementByClassName
+     //equiv getElementByClassName
                 requestCard.querySelector('.author').innerHTML = `Requester: ${author}`;
                 requestCard.querySelector('.description').innerHTML = `Description: ${description}`;
                 requestCard.querySelector('.date').innerHTML = `Requested on: ${date.toDate()}`;
