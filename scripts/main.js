@@ -5,9 +5,7 @@ firebase.auth().onAuthStateChanged(user => {
 
         // the following functions are always called when someone is logged in
         insertName();
-        displayCards();
-        showUploadedPicture();
-        displayCards("recipes");
+        // showUploadedPicture();
     } else {
         // No user is signed in.
         console.log("No user is signed in");
@@ -17,6 +15,7 @@ firebase.auth().onAuthStateChanged(user => {
 
 function insertName() {
     firebase.auth().onAuthStateChanged(user => {
+        console.log("insertName called");
         // Check if a user is signed in:
         if (user) {
             console.log(user.uid);
@@ -26,7 +25,8 @@ function insertName() {
             //method #1:  insert with html only
             //document.getElementById("name-goes-here").innerText = user_Name;    //using javascript
             //method #2:  insert using jquery
-            $("#name-goes-here").text(user_Name); //using jquery
+            $("#display-3").text(user_Name);
+            // $("#name-goes-here").text(user_Name); //using jquery
 
         } else {
             console.log("No user signed in");
@@ -34,7 +34,6 @@ function insertName() {
         }
     });
 }
-insertName(); //run the function
 
 function displayCards(collection) {
     let cardTemplate = document.getElementById("recipeCardTemplate");
@@ -50,7 +49,9 @@ function displayCards(collection) {
                 var recipeDescription = doc.data().description;
                 let newcard = cardTemplate.content.cloneNode(true);
                 let picUrl = doc.data().recipePic; 
+                let docID = doc.id;
 
+                console.log(docID);
                 //update title and text and image
                 newcard.querySelector('.card-title').innerHTML = recipeName;
                 newcard.querySelector('.card-author').innerHTML = recipeAuthor;
@@ -73,7 +74,7 @@ function displayCards(collection) {
                 })
                 newcard.querySelector('.card-image').src = picUrl;
                 console.log(collection);
-                newcard.querySelector('.read-more').href = "eachRecipe.html?recipeName=" + recipeName +"&id=" + recipePhoto;
+                newcard.querySelector('.read-more').href = "recipe.html?&id=" + doc.ID;
                 //attach to gallery
                 document.getElementById(collection + "-go-here").appendChild(newcard);
             })
@@ -81,15 +82,13 @@ function displayCards(collection) {
 }
 displayCards("recipes");
 
-function setRecipeData(id){               // event handler, when write review is clicked, this will be run.
-    localStorage.setItem ('recipeDescription', id);
-}
-
-
+// function setRecipeData(id){               // event handler, when write review is clicked, this will be run.
+//     localStorage.setItem ('recipeDescription', id);
+// }
 
 function saveFavourite(recipeDescription) {
     currentUser.set({
-        favourite: firebase.firestore.FieldValue.arrayUnion(recipeDescription)
+        favourite: firebase.firestore.FieldValue.arrayUnion(doc.id)
     }, {
         merge: true
     })

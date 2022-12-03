@@ -3,7 +3,7 @@ function populateRecipe() {
     let requestCardGroup = document.getElementById("CardGroup");
 
     let params = new URL(window.location.href);
-    let recipeID = params.searchParams.get("recipeID")
+    let recipeID = params.searchParams.get("id");
 
     db.collection("recipes").doc(recipeID)
     .get()
@@ -74,4 +74,4 @@ function populateRecipe() {
         console.log("Error getting document:", error);
     });
 }
-populateRecipe();
+populateRecipe("recipes");
